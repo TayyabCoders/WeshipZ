@@ -2,8 +2,8 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
-type ButtonSize = "sm" | "md";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "dark";
+type ButtonSize = "sm" | "md" | "lg";
 
 type CommonProps = {
   variant?: ButtonVariant;
@@ -24,16 +24,18 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-[#1f5acc] shadow-sm shadow-primary/25",
+    "bg-primary text-primary-foreground hover:bg-primary-hover shadow-sm shadow-primary/20",
   secondary:
-    "bg-surface-dark text-primary-foreground hover:bg-[#2c303a]",
+    "bg-soft text-foreground hover:bg-primary-light border border-border",
   ghost:
-    "bg-transparent text-foreground hover:bg-primary/5 border border-border",
+    "bg-transparent text-foreground hover:bg-soft border border-border",
+  dark: "bg-midnight text-primary-foreground hover:bg-surface-dark",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-9 px-3.5 text-sm",
-  md: "h-11 px-5 text-sm",
+  sm: "h-10 px-4 text-sm rounded-[10px]",
+  md: "h-11 px-5 text-sm rounded-[12px]",
+  lg: "h-12 px-6 text-base rounded-[12px]",
 };
 
 function buttonClasses(
@@ -42,15 +44,11 @@ function buttonClasses(
   className?: string,
 ) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-md font-medium tracking-wide transition-colors duration-200 disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-colors duration-200 disabled:pointer-events-none disabled:opacity-50",
     variantClasses[variant],
     sizeClasses[size],
     className,
   );
-}
-
-function isLinkProps(props: ButtonProps): props is ButtonAsLink {
-  return "href" in props && typeof props.href === "string";
 }
 
 export function Button(props: ButtonProps) {
@@ -58,7 +56,7 @@ export function Button(props: ButtonProps) {
   const size = props.size ?? "md";
   const classes = buttonClasses(variant, size, props.className);
 
-  if (isLinkProps(props)) {
+  if ("href" in props && props.href) {
     if (props.external) {
       return (
         <a
@@ -78,18 +76,19 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const {
-    variant: _v,
-    size: _s,
-    className: _c,
-    children,
-    type = "button",
-    ...rest
-  } = props;
-
+  const buttonProps = props as ButtonAsButton;
   return (
-    <button type={type} className={classes} {...rest}>
-      {children}
+    <button
+      type={buttonProps.type ?? "button"}
+      className={classes}
+      disabled={buttonProps.disabled}
+      onClick={buttonProps.onClick}
+      name={buttonProps.name}
+      value={buttonProps.value}
+      form={buttonProps.form}
+      aria-label={buttonProps["aria-label"]}
+    >
+      {buttonProps.children}
     </button>
   );
 }

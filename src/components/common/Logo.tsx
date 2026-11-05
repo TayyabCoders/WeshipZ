@@ -9,7 +9,7 @@ type LogoProps = {
 export function Logo({ className, priority }: LogoProps) {
   return (
     <Image
-      src="/logo.jpg"
+      src="/images/brand/logo.jpg"
       alt="WeShipZ"
       width={160}
       height={64}
