@@ -1,40 +1,51 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
 
-const display = Syne({
-  variable: "--font-syne",
+const display = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700"],
 });
 
-const body = DM_Sans({
-  variable: "--font-dm-sans",
+const body = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://weshipz.com"),
   title: {
-    default: "WeShipZ",
+    default: "WeShipZ — Creative Studio",
     template: "%s · WeShipZ",
   },
   description:
-    "WeShipZ moves freight and last-mile deliveries with speed, clarity, and care.",
+    "WeShipZ is a creative-tech studio for motion graphics, ads, video, websites, AI automation and social content.",
+  openGraph: {
+    title: "WeShipZ — Creative Studio",
+    description:
+      "Creative ideas. Powerful execution. Motion, digital and intelligent systems for modern brands.",
+    type: "website",
+    siteName: "WeShipZ",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

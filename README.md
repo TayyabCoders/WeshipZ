@@ -1,13 +1,13 @@
-# WeshipZ
+# WeShipZ
 
-Next.js starter for WeshipZ — App Router, TypeScript, Tailwind CSS v4.
+Premium creative-tech agency portfolio built with Next.js App Router.
 
 ## Stack
 
-- Next.js 16 (App Router)
-- React 19 + TypeScript
+- Next.js 16 + React 19 + TypeScript
 - Tailwind CSS v4
-- `next/font` (Syne + DM Sans)
+- Motion, GSAP, Lucide
+- React Hook Form + Zod
 
 ## Run
 
@@ -18,41 +18,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Scripts
+## Routes
 
-| Command         | What it does        |
-| --------------- | ------------------- |
-| `npm run dev`   | Local dev server    |
-| `npm run build` | Production build    |
-| `npm run start` | Serve production    |
-| `npm run lint`  | ESLint              |
+| Path | Page |
+| --- | --- |
+| `/` | Homepage |
+| `/work` | Portfolio archive |
+| `/work/[slug]` | Project case study |
+| `/services` | Services overview |
+| `/services/[slug]` | Service detail |
+| `/about` | About |
+| `/contact` | Project inquiry |
+| `/privacy-policy` | Privacy placeholder |
+| `/terms` | Terms placeholder |
 
-## Folder map
+## Structure
 
 ```
 src/
-  app/
-    layout.tsx      # Root layout (Header + Footer + fonts)
-    page.tsx        # Home
-    globals.css     # Theme tokens + base styles
-  components/
-    layout/         # Header, Footer, Container
-    ui/             # Button
-  lib/
-    utils.ts        # cn() helper
+  app/            routes + API
+  components/     layout, hero, portfolio, services, forms, animations
+  data/           projects, services, navigation
+  lib/            utils
+public/
+  images/brand/   logo
+  posters/        demo posters
+  videos/         project media folders
 ```
 
-## Theme
+## Notes
 
-Brand tokens in `src/app/globals.css`:
-
-| Token | Hex | Use |
-| --- | --- | --- |
-| `--primary` | `#296BE5` | Electric Blue — buttons, links |
-| `--midnight` | `#101116` | Hero, footer |
-| `--background` | `#F7F8FA` | Off White — page ground |
-| `--surface-dark` | `#22252D` | Dark sections / nav surfaces |
-| `--muted` | `#A6B0C3` | Secondary text |
-| `--violet` | `#6C63FF` | Optional AI / gradient accents |
-
-Logo: `public/logo.jpg` via `src/components/ui/Logo.tsx`
+- Portfolio entries are marked **Demo project** until real case studies are added.
+- Contact form posts to `/api/contact` and logs inquiries until email/CRM is wired.
+- Replace placeholder team/contact details before launch.
