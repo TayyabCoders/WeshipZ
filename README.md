@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeshipZ
 
-## Getting Started
+Next.js starter for WeshipZ — App Router, TypeScript, Tailwind CSS v4.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- `next/font` (Syne + DM Sans)
+
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command         | What it does        |
+| --------------- | ------------------- |
+| `npm run dev`   | Local dev server    |
+| `npm run build` | Production build    |
+| `npm run start` | Serve production    |
+| `npm run lint`  | ESLint              |
 
-## Learn More
+## Folder map
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/
+    layout.tsx      # Root layout (Header + Footer + fonts)
+    page.tsx        # Home
+    globals.css     # Theme tokens + base styles
+  components/
+    layout/         # Header, Footer, Container
+    ui/             # Button
+  lib/
+    utils.ts        # cn() helper
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Theme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Brand tokens in `src/app/globals.css`:
 
-## Deploy on Vercel
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--primary` | `#296BE5` | Electric Blue — buttons, links |
+| `--midnight` | `#101116` | Hero, footer |
+| `--background` | `#F7F8FA` | Off White — page ground |
+| `--surface-dark` | `#22252D` | Dark sections / nav surfaces |
+| `--muted` | `#A6B0C3` | Secondary text |
+| `--violet` | `#6C63FF` | Optional AI / gradient accents |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Logo: `public/logo.jpg` via `src/components/ui/Logo.tsx`
