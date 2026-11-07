@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "WeShipZ is a small creative-tech team building motion, digital experiences and intelligent systems.",
+    "WeShipZ is a small motion and video team making motion graphics, video edits and creative ads.",
 };
 
 const label = "text-xs font-medium uppercase tracking-[0.18em] text-primary";
@@ -24,7 +24,7 @@ const principles = [
   },
   {
     title: "Built to keep using",
-    description: "Brand kits, sites and automations your team can run long after launch day.",
+    description: "Cutdowns, templates and motion kits your team can reuse long after launch day.",
   },
   {
     title: "One team, start to finish",
@@ -46,9 +46,9 @@ const team = [
     tone: "bg-midnight text-white",
   },
   {
-    role: "Product & systems",
-    focus: "Web and automation",
-    note: "Turns the campaign into a site, a tool or a workflow the team can run.",
+    role: "Ads & growth",
+    focus: "Creative ads and testing",
+    note: "Turns the story into hooks, angles and ad variations built to perform.",
     tone: "bg-primary-light text-foreground",
   },
 ];
@@ -59,26 +59,26 @@ export default function AboutPage() {
       <PageHero
         label="About"
         lines={["Small team.", <span key="b" className="text-muted">Big output.</span>]}
-        intro="WeShipZ is a creative-tech studio. We make the pictures people stop for, and the digital systems that keep a brand moving after the campaign ends."
+        intro="WeShipZ is a motion and video studio. We make the motion, edits and ads people stop for, packaged for creators, SaaS teams, startups and founders."
       />
 
       <StudioWord />
 
       <section className="bg-background py-24 md:py-36">
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <p className={label}>( Our story )</p>
+          <p className={label}>Our story</p>
           <div>
             <Reveal>
               <p className="font-display text-3xl font-medium leading-[1.15] tracking-[-0.03em] md:text-5xl">
-                Designers, editors and developers in the same room. The work
+                Animators, editors and ad creatives in the same room. The work
                 stays sharp because the people making the picture also
-                understand the product.
+                understand what it has to sell.
               </p>
             </Reveal>
             <p className="mt-10 max-w-xl text-lg leading-relaxed text-secondary">
-              Most brands juggle a video team, a web agency and a freelancer
-              for automation. We put all of it under one roof, so the campaign,
-              the website and the systems behind them speak the same language.
+              Most brands juggle a motion designer, an editor and an ad agency.
+              We put all three under one roof, so your explainer, your content
+              and your ads look and sound like the same brand.
             </p>
           </div>
         </Container>
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       <section className="bg-soft py-24 md:py-36">
         <Container>
-          <p className={label}>( What we believe )</p>
+          <p className={label}>What we believe</p>
           <ul className="mt-12 border-t border-foreground/15">
             {principles.map((item, index) => (
               <li
@@ -108,7 +108,7 @@ export default function AboutPage() {
         <Container>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className={label}>( The team )</p>
+              <p className={label}>The team</p>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl">
                 Three disciplines.
                 <br />

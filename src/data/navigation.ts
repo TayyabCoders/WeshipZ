@@ -1,6 +1,7 @@
 export const mainNav = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
+  { href: "/packages", label: "Packages" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -9,6 +10,7 @@ export const footerNav = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
+  { href: "/packages", label: "Packages" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;

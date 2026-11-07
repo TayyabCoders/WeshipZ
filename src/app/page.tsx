@@ -4,6 +4,7 @@ import { ServiceList } from "@/components/home/ServiceList";
 import { Showcase } from "@/components/home/Showcase";
 import { Statement } from "@/components/home/Statement";
 import { WordMarquee } from "@/components/home/WordMarquee";
+import { PackageGrid } from "@/components/packages/PackageGrid";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <WordMarquee />
       <ServiceList />
       <Showcase />
+      <PackageGrid />
       <ProcessStack />
     </>
   );

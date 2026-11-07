@@ -1,10 +1,10 @@
 const words = [
   "Motion graphics",
+  "Video editing",
   "Creative ads",
-  "Post-production",
-  "Websites",
-  "AI automation",
-  "Social content",
+  "SaaS animation",
+  "Short-form reels",
+  "Product ads",
 ];
 
 export function WordMarquee() {

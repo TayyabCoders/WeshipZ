@@ -11,13 +11,7 @@ import {
 import { Container } from "@/components/common/Container";
 
 const text =
-  "WeShipZ is a creative-tech studio. We make the pictures people stop scrolling for, then build the sites and systems that turn that attention into business.";
-
-const facts = [
-  { value: "6", label: "Disciplines under one roof" },
-  { value: "1", label: "Team from brief to delivery" },
-  { value: "0", label: "Hand-offs between vendors" },
-];
+  "WeShipZ is a motion and video studio. We make the motion, edits and ads people stop scrolling for, and shape every frame to turn that attention into growth.";
 
 function Word({
   word,
@@ -49,7 +43,7 @@ export function Statement() {
     <section id="about" className="bg-background py-24 md:py-40">
       <Container>
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-          ( Who we are )
+          Who we are
         </p>
         <p
           ref={ref}
@@ -66,18 +60,6 @@ export function Statement() {
                 />
               ))}
         </p>
-
-        <dl className="mt-16 grid gap-8 border-t border-border pt-10 sm:grid-cols-3 md:mt-24">
-          {facts.map((fact) => (
-            <div key={fact.label}>
-              <dt className="sr-only">{fact.label}</dt>
-              <dd className="font-display text-6xl font-semibold tracking-[-0.05em] text-primary md:text-8xl">
-                {fact.value}
-              </dd>
-              <dd className="mt-2 text-sm text-secondary">{fact.label}</dd>
-            </div>
-          ))}
-        </dl>
       </Container>
     </section>
   );

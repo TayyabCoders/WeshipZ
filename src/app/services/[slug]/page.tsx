@@ -19,20 +19,8 @@ const fit: Record<ServiceSlug, { audience: string; why: string }> = {
     why: "The idea is written for the frame and the feed at the same time, so you are never recutting a film that was never meant to be short.",
   },
   "video-editing": {
-    audience: "Founders, shows and brands sitting on footage that does not yet feel like a story.",
+    audience: "Creators, founders and podcasts sitting on footage that does not yet feel like a story.",
     why: "Pacing, grade and sound are one finish, not three vendors handing files back and forth.",
-  },
-  "web-development": {
-    audience: "Companies whose website should feel as considered as the work it shows.",
-    why: "Design and build stay in one place, so the motion you approve is the motion that ships.",
-  },
-  "ai-automation": {
-    audience: "Operators losing hours to the same handoff between inbox, sheet and chat.",
-    why: "We automate the process you already run. No science project, no tool you have to babysit.",
-  },
-  "social-media": {
-    audience: "Brands that need a recognizable presence without a new look every Monday.",
-    why: "Templates, reels and campaign bursts come from one visual system, so speed never makes the brand messy.",
   },
 };
 
@@ -81,7 +69,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-background pb-20 pt-12 md:pb-28 md:pt-20">
         <Container className="grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <p className={label}>( Service 0{index + 1} )</p>
+            <p className={label}>Service 0{index + 1}</p>
             <h1 className="mt-8 font-display text-[clamp(3rem,8vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.055em]">
               {service.shortTitle}
               <span className="text-primary">.</span>
@@ -118,13 +106,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-soft py-20 md:py-28">
         <Container className="grid gap-12 md:grid-cols-2 md:gap-20">
           <div>
-            <p className={label}>( Who it&apos;s for )</p>
+            <p className={label}>Who it&apos;s for</p>
             <p className="mt-6 font-display text-3xl font-medium leading-[1.15] tracking-[-0.03em] md:text-4xl">
               {point.audience}
             </p>
           </div>
           <div>
-            <p className={label}>( Why it works )</p>
+            <p className={label}>Why it works</p>
             <p className="mt-6 text-lg leading-relaxed text-secondary md:text-xl">{point.why}</p>
           </div>
         </Container>
@@ -133,7 +121,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-background py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className={label}>( What we make )</p>
+            <p className={label}>What we make</p>
             <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-5xl">
               Everything in the box.
             </h2>
@@ -154,7 +142,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="bg-midnight py-20 text-white md:py-28">
         <Container>
-          <p className={label}>( How it runs )</p>
+          <p className={label}>How it runs</p>
           <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-5xl">
             Four steps. No surprises.
           </h2>
@@ -174,7 +162,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {related.length > 0 ? (
         <section id="work" className="scroll-mt-24 bg-background py-20 md:py-28">
           <Container>
-            <p className={label}>( Selected work )</p>
+            <p className={label}>Selected work</p>
             <div className="mt-10 grid gap-x-8 gap-y-16 md:grid-cols-2">
               {related.map((project) => (
                 <ProjectCard key={project.slug} project={project} aspect="aspect-[16/10]" />
@@ -187,7 +175,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-background pb-20 md:pb-28">
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className={label}>( FAQ )</p>
+            <p className={label}>FAQ</p>
             <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-5xl">
               Good questions.
             </h2>

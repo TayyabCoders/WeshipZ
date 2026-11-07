@@ -17,6 +17,7 @@ export async function POST(request: Request) {
       email: body.email,
       company: body.company ?? null,
       service: body.service,
+      package: body.package || null,
       budget: body.budget ?? null,
       description: body.description,
       reference: body.reference || null,

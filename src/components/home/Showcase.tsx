@@ -13,8 +13,7 @@ import {
 } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
-import { DeviceFrame } from "@/components/stage/DeviceFrame";
-import { reels, sites, type Reel } from "@/data/showcase";
+import { reels, type Reel } from "@/data/showcase";
 import { cn } from "@/lib/utils";
 
 const tools = ["Premiere Pro", "After Effects", "DaVinci Resolve", "CapCut", "Final Cut Pro"];
@@ -84,11 +83,7 @@ function ReelCard({
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
-        <div className="absolute inset-x-0 top-0 flex items-center justify-between p-3 text-[11px] font-medium text-white">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2 py-1 backdrop-blur-md">
-            <span className="size-1.5 animate-pulse rounded-full bg-red-500" />
-            Reel
-          </span>
+        <div className="absolute inset-x-0 top-0 flex justify-end p-3 text-[11px] font-medium text-white">
           <span className="rounded-full bg-black/40 px-2 py-1 tabular-nums backdrop-blur-md">
             {reel.duration}
           </span>
@@ -146,70 +141,14 @@ function ReelStack() {
   );
 }
 
-function SiteMarquee() {
-  const loop = [...sites, ...sites];
-
-  return (
-    <div className="relative mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] md:mt-20">
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-28 border-t border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent"
-      />
-      <ul
-        className="marquee-track relative flex w-max items-end pb-10 hover:[animation-play-state:paused]"
-        style={{ animationDuration: "60s" }}
-      >
-        {loop.map((site, index) => {
-          const item = (
-            <>
-              <div className="relative transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-3">
-                <DeviceFrame kind={site.kind} src={site.image} alt={`${site.name} website`} />
-                <div
-                  aria-hidden
-                  className="absolute inset-x-[8%] -bottom-5 h-6 rounded-[100%] bg-black/70 blur-lg"
-                />
-              </div>
-              <div className="mt-9 text-center">
-                <p className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-white transition-colors group-hover:text-primary">
-                  {site.name}
-                  {site.href ? <ArrowUpRight className="size-3.5" /> : null}
-                </p>
-                <p className="mt-1 text-xs text-white/45">
-                  {site.sector} · {site.stack}
-                </p>
-              </div>
-            </>
-          );
-
-          return (
-            <li key={`${site.name}-${site.kind}-${index}`} className="group shrink-0 pr-10 md:pr-16" aria-hidden={index >= sites.length}>
-              {site.href ? (
-                <a href={site.href} target="_blank" rel="noopener noreferrer" tabIndex={index >= sites.length ? -1 : 0}>
-                  {item}
-                </a>
-              ) : (
-                item
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
 export function Showcase() {
   return (
     <section className="relative overflow-hidden bg-midnight py-24 text-white md:py-36">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px]"
-      />
 
       <Container className="relative grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            ( Short-form & post )
+            Short-form & post
           </p>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl">
             Edits that stop
@@ -258,33 +197,6 @@ export function Showcase() {
 
         <ReelStack />
       </Container>
-
-      <Container className="relative mt-28 flex flex-col justify-between gap-6 md:mt-40 md:flex-row md:items-end">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            ( Web & digital )
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl">
-            Websites, live on
-            <br />
-            every screen.
-          </h2>
-        </div>
-        <div className="max-w-sm">
-          <p className="text-base leading-relaxed text-white/60">
-            Business sites, stores and web apps. Designed and built in-house,
-            fast on mobile and ready to convert.
-          </p>
-          <Link
-            href="/services/web-development"
-            className="mt-6 inline-flex items-center gap-2 border-b border-white/30 pb-1 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
-          >
-            Website design & development <ArrowUpRight className="size-4" />
-          </Link>
-        </div>
-      </Container>
-
-      <SiteMarquee />
     </section>
   );
 }

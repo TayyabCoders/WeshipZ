@@ -50,7 +50,7 @@ export function SelectedWork() {
       <div className="mx-auto flex w-full max-w-[1280px] items-end justify-between gap-6 px-5 md:px-8 xl:px-12">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            ( Selected work )
+            Selected work
           </p>
           <h2 className="mt-5 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
             Work that moves

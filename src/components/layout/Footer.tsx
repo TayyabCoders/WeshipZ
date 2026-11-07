@@ -14,7 +14,7 @@ export function Footer() {
       <Container className="py-20 md:py-28">
         <div className="relative border-b border-white/10 pb-16 md:pb-24">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            ( Got a brief? )
+            Got a brief?
           </p>
           <p className="mt-6 font-display text-[clamp(3.5rem,12vw,11rem)] font-semibold leading-[0.85] tracking-[-0.06em]">
             Let&apos;s make
@@ -52,8 +52,8 @@ export function Footer() {
               <span className="font-display text-lg font-bold">WeShipZ</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              A creative-tech studio for motion, ads, digital experiences and
-              intelligent automation.
+              A motion and video studio for motion graphics, video editing and
+              creative ads.
             </p>
           </div>
 
@@ -61,12 +61,12 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-muted">
               Navigate
             </p>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-3">
               {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-primary-foreground/80 transition-colors hover:text-primary"
+                    className="inline-block py-1.5 text-sm text-primary-foreground/80 transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>
@@ -79,12 +79,12 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-muted">
               Services
             </p>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-3">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-primary-foreground/80 transition-colors hover:text-primary"
+                    className="inline-block py-1.5 text-sm text-primary-foreground/80 transition-colors hover:text-primary"
                   >
                     {service.shortTitle}
                   </Link>
@@ -101,7 +101,7 @@ export function Footer() {
               Ready when you are. Share the brief and we&apos;ll map the next
               step.
             </p>
-            <div className="mt-4 flex flex-col gap-2">
+            <div className="mt-3 flex flex-col items-start [&>a]:py-1.5">
               <Link
                 href="/contact"
                 className="text-sm font-medium text-primary hover:text-[#6C9DF5]"
@@ -129,7 +129,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="hover:text-primary-foreground"
+                className="py-1.5 hover:text-primary-foreground"
               >
                 {item.label}
               </Link>
