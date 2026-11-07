@@ -7,11 +7,11 @@ export const showreel = {
   poster: "/posters/brand-motion.svg",
 };
 
-/** International number, digits only. Leave empty until the real line exists. */
-export const whatsappNumber = "";
+/** International number, digits only. */
+export const whatsappNumber = "923334122004";
 
 export function whatsappHref(
-  message = "Hi WeShipZ, I have a project in mind.",
+  message = "Hi WeShipZ, I'd like to discuss a project.",
 ) {
   if (!whatsappNumber) return null;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
