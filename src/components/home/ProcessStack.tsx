@@ -12,22 +12,22 @@ const steps = [
   {
     title: "Design",
     description:
-      "Style frames, scripts, layouts and flows. You see exactly how it will look and move before we build it.",
-    tags: ["Style frames", "Storyboards", "UI design"],
+      "Scripts, style frames and storyboards. You see exactly how it will look and move before we animate a frame.",
+    tags: ["Scripts", "Style frames", "Storyboards"],
     tone: "bg-primary-light text-foreground",
   },
   {
     title: "Produce",
     description:
-      "Animation, edits, code and automations, made by the same team that designed them. Nothing is lost in a hand-off.",
-    tags: ["Motion", "Edit & grade", "Build"],
+      "Animation, edits and ads, made by the same team that designed them. Nothing is lost in a hand-off.",
+    tags: ["Motion", "Edit & grade", "Sound"],
     tone: "bg-primary text-white",
   },
   {
     title: "Ship",
     description:
-      "Platform-ready exports, a launched site or a running workflow, plus the files your team needs to keep using it.",
-    tags: ["Delivery", "Launch", "Iterate"],
+      "Platform-ready exports in every format, plus cutdowns and source files your team can keep using.",
+    tags: ["Delivery", "Cutdowns", "Iterate"],
     tone: "bg-midnight text-white",
   },
 ];
@@ -38,7 +38,7 @@ export function ProcessStack() {
       <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            ( How we ship )
+            How we ship
           </p>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl">
             From first call to final frame.

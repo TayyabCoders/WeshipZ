@@ -19,15 +19,15 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://weshipz.com"),
   title: {
-    default: "WeShipZ — Creative Studio",
+    default: "WeShipZ — Motion, Video & Ads Studio",
     template: "%s · WeShipZ",
   },
   description:
-    "WeShipZ is a creative-tech studio for motion graphics, ads, video, websites, AI automation and social content.",
+    "WeShipZ is a motion and video studio: motion graphics, video editing and creative ads, with packages for creators, SaaS, startups and founders.",
   openGraph: {
-    title: "WeShipZ — Creative Studio",
+    title: "WeShipZ — Motion, Video & Ads Studio",
     description:
-      "Creative ideas. Powerful execution. Motion, digital and intelligent systems for modern brands.",
+      "Motion graphics, video editing and creative ads people stop for. Packages for creators, SaaS, startups and founders.",
     type: "website",
     siteName: "WeShipZ",
   },

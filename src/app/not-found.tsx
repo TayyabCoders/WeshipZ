@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <section className="bg-background pb-24 pt-12 md:pb-36 md:pt-20">
       <Container>
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">( Error 404 )</p>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Error 404</p>
         <h1 className="mt-8 font-display text-[clamp(3rem,9vw,8.5rem)] font-semibold leading-[0.9] tracking-[-0.055em]">
           This page
           <br />

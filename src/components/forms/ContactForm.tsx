@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm, type UseFormRegisterReturn } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight } from "lucide-react";
+import { packages } from "@/data/packages";
 import { cn } from "@/lib/utils";
 
 const schema = z.object({
@@ -13,6 +15,7 @@ const schema = z.object({
   email: z.string().email("Enter a valid email."),
   company: z.string().optional(),
   service: z.string().min(1, "Select a service."),
+  package: z.string().optional(),
   budget: z.string().optional(),
   description: z.string().min(20, "Tell us a bit more about the project."),
   reference: z.string().url("Enter a valid URL.").optional().or(z.literal("")),
@@ -20,18 +23,15 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const serviceOptions = [
-  "Motion Graphics",
-  "Creative Ads",
-  "Video Editing",
-  "Website Development",
-  "AI Automation",
-  "Social Media Content",
-  "Multiple Services",
-  "Other",
-];
+const serviceOptions = ["Motion Graphics", "Video Editing", "Creative Ads", "All three", "Not sure yet"];
+
+const packageOptions = [...packages.map((pack) => pack.name), "Custom"];
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
+  const requested = searchParams.get("package");
+  const initialPackage =
+    requested === "custom" ? "Custom" : (packages.find((pack) => pack.id === requested)?.name ?? "");
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
     register,
@@ -44,7 +44,8 @@ export function ContactForm() {
       fullName: "",
       email: "",
       company: "",
-      service: "",
+      service: initialPackage ? "Not sure yet" : "",
+      package: initialPackage,
       budget: "",
       description: "",
       reference: "",
@@ -100,6 +101,12 @@ export function ContactForm() {
       <PillGroup legend="What do you need?" error={errors.service?.message}>
         {serviceOptions.map((option) => (
           <Pill key={option} value={option} {...register("service")} />
+        ))}
+      </PillGroup>
+
+      <PillGroup legend="Package (optional)">
+        {packageOptions.map((option) => (
+          <Pill key={option} value={option} {...register("package")} />
         ))}
       </PillGroup>
 

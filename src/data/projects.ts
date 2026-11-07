@@ -4,10 +4,7 @@ export type ProjectCategory =
   | "all"
   | "motion-graphics"
   | "creative-ads"
-  | "video-editing"
-  | "web-development"
-  | "ai-automation"
-  | "social-media";
+  | "video-editing";
 
 export type Project = {
   slug: string;
@@ -32,9 +29,6 @@ export const projectFilters: { id: ProjectCategory; label: string }[] = [
   { id: "motion-graphics", label: "Motion Graphics" },
   { id: "creative-ads", label: "Creative Ads" },
   { id: "video-editing", label: "Video Editing" },
-  { id: "web-development", label: "Websites" },
-  { id: "ai-automation", label: "AI Automation" },
-  { id: "social-media", label: "Social Media" },
 ];
 
 export const projects: Project[] = [
@@ -115,70 +109,22 @@ export const projects: Project[] = [
     isDemo: true,
   },
   {
-    slug: "studio-website",
-    title: "Studio Website",
-    category: "web-development",
-    serviceSlug: "web-development",
+    slug: "creator-content-system",
+    title: "Creator Content System",
+    category: "video-editing",
+    serviceSlug: "video-editing",
     year: "2026",
     client: "Concept project",
     summary:
-      "An expressive marketing site with editorial layouts and performance-minded builds.",
+      "A monthly short-form engine: hook-first reels, captions and a look viewers recognize.",
     challenge:
-      "Make a digital presence that feels as crafted as the studio’s work.",
+      "Ship content at creator speed without every video looking different.",
     approach:
-      "Editorial design system, motion where it matters, and a maintainable Next.js build.",
+      "Built caption and motion templates once, then edited every short for retention.",
     deliverables: [
-      "Design system",
-      "Responsive website",
-      "CMS-ready structure",
-    ],
-    poster: "/posters/studio-website.svg",
-    video:
-      "/videos/bunny.mp4",
-    accent: "#296BE5",
-    isDemo: true,
-  },
-  {
-    slug: "ops-automation-kit",
-    title: "Ops Automation Kit",
-    category: "ai-automation",
-    serviceSlug: "ai-automation",
-    year: "2026",
-    client: "Concept project",
-    summary:
-      "Connected workflows that move leads, docs and updates without manual busywork.",
-    challenge:
-      "Reduce repetitive operations across tools without fragile one-off scripts.",
-    approach:
-      "Mapped the process, integrated the stack, and shipped monitored automations.",
-    deliverables: [
-      "Workflow map",
-      "Tool integrations",
-      "AI-assisted routing",
-    ],
-    poster: "/posters/ops-automation.svg",
-    video:
-      "/videos/sintel.mp4",
-    accent: "#6C63FF",
-    isDemo: true,
-  },
-  {
-    slug: "social-content-system",
-    title: "Social Content System",
-    category: "social-media",
-    serviceSlug: "social-media",
-    year: "2026",
-    client: "Concept project",
-    summary:
-      "A recognizable content system for posts, reels and campaign bursts.",
-    challenge:
-      "Keep a brand visually consistent while shipping content at speed.",
-    approach:
-      "Defined pillars, templates and motion-ready formats for ongoing production.",
-    deliverables: [
-      "Content templates",
-      "Reel packages",
-      "Campaign creatives",
+      "Monthly reels package",
+      "Caption & motion templates",
+      "YouTube long-form edit",
     ],
     poster: "/posters/social-system.svg",
     video:

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
@@ -8,7 +9,7 @@ import { email, whatsappHref } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with WeShipZ: motion, ads, editing, websites, automation or social content.",
+    "Start a project with WeShipZ: motion graphics, video editing, creative ads or a ready-made package.",
 };
 
 const nextSteps = [
@@ -63,7 +64,9 @@ export default function ContactPage() {
           </div>
 
           <div className="rounded-[28px] bg-soft p-6 sm:p-10">
-            <ContactForm />
+            <Suspense>
+              <ContactForm />
+            </Suspense>
           </div>
         </Container>
       </section>

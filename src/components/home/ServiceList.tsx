@@ -39,15 +39,15 @@ export function ServiceList({ bare = false }: { bare?: boolean }) {
         <div className={cn("flex flex-col justify-between gap-6 md:flex-row md:items-end", bare && "hidden")}>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-              ( What we do )
+              What we do
             </p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Six crafts. One studio.
+              Three crafts. One studio.
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-secondary">
-            Pick one, or bring a brief that needs several. We plan it as one
-            piece of work.
+            Motion, edits and ads, made by one team. Pick one, or bring a brief
+            that needs all three.
           </p>
         </div>
 

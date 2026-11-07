@@ -82,13 +82,13 @@ export default async function ProjectPage({ params }: PageProps) {
           </dl>
 
           <div className="grid gap-16 py-16 md:py-24 lg:grid-cols-[0.8fr_1.2fr]">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">( The brief )</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">The brief</p>
             <p className="font-display text-3xl font-medium leading-[1.15] tracking-[-0.03em] md:text-5xl">
               {project.challenge}
             </p>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">( Our approach )</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Our approach</p>
             <p className="max-w-2xl text-lg leading-relaxed text-secondary md:text-xl">{project.approach}</p>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">( What we delivered )</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">What we delivered</p>
             <ul className="border-t border-border">
               {project.deliverables.map((item, index) => (
                 <li
@@ -134,7 +134,7 @@ export default async function ProjectPage({ params }: PageProps) {
             className="object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
           />
           <Container className="relative py-24 md:py-36">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">( Next project )</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">Next project</p>
             <p className="mt-6 flex items-center justify-between gap-6 font-display text-5xl font-semibold tracking-[-0.05em] md:text-8xl">
               {next.title}
               <span className="inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-white text-midnight transition-transform duration-500 group-hover:rotate-45 md:size-24">

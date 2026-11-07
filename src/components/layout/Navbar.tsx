@@ -104,10 +104,10 @@ export function Navbar() {
                           <Container className="grid gap-10 py-10 lg:grid-cols-[1fr_2fr]">
                             <div>
                               <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-                                ( Services )
+                                Services
                               </p>
                               <p className="mt-4 max-w-xs font-display text-3xl font-semibold leading-[1] tracking-[-0.04em]">
-                                Six crafts, planned as one piece of work.
+                                Three crafts, planned as one piece of work.
                               </p>
                               <Link
                                 href="/services"
@@ -117,7 +117,7 @@ export function Navbar() {
                                 All services <ArrowUpRight className="size-4" />
                               </Link>
                             </div>
-                            <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                            <ul className="grid grid-cols-3 gap-x-6">
                               {services.map((service, index) => (
                                 <li key={service.slug}>
                                   <Link
