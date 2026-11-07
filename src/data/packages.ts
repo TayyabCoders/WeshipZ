@@ -130,3 +130,54 @@ export const packages: Package[] = [
 export function contactHref(id: string) {
   return `/contact?package=${id}`;
 }
+
+export type BuilderItem = {
+  id: string;
+  name: string;
+  unit: string;
+  /** Placeholder USD unit prices, confirm before launch. */
+  price: number;
+  max: number;
+};
+
+export const builderItems: BuilderItem[] = [
+  { id: "shorts", name: "Short-form edits", unit: "per reel", price: 40, max: 40 },
+  { id: "longform", name: "Long-form YouTube edits", unit: "per video", price: 180, max: 10 },
+  { id: "ads", name: "Ad creatives", unit: "per ad", price: 120, max: 20 },
+  { id: "explainer", name: "Motion explainer (60s)", unit: "per video", price: 900, max: 4 },
+  { id: "ui", name: "UI / product animation loops", unit: "per loop", price: 150, max: 10 },
+  { id: "logo", name: "Logo reveal", unit: "one-off", price: 250, max: 1 },
+];
+
+export const rushMultiplier = 1.3;
+
+export const packageFaqs = [
+  {
+    question: "How many revisions are included?",
+    answer:
+      "Two rounds of revisions on every deliverable. Small tweaks after that, like a typo or a swapped clip, are on us.",
+  },
+  {
+    question: "How do payments work?",
+    answer:
+      "One-off packages are 50% to start and 50% on delivery. Monthly packages are billed at the start of each month.",
+  },
+  {
+    question: "Can I pause or cancel a monthly package?",
+    answer: "Yes. Give us 14 days' notice before your next billing date and you can pause, switch or cancel.",
+  },
+  {
+    question: "Who owns the final videos?",
+    answer:
+      "You do. Once the project is paid in full, you own the final exports and can use them anywhere, including paid ads.",
+  },
+  {
+    question: "What do you need from me to start?",
+    answer:
+      "A short brief, your footage or product access, and any brand assets. We kick off with a 15-minute call to lock the scope.",
+  },
+  {
+    question: "Do you work with international clients?",
+    answer: "Yes. We work remotely with creators and brands worldwide, with reviews and delivery handled online.",
+  },
+];

@@ -176,11 +176,13 @@ export function Showcase() {
               <p className="text-xs uppercase tracking-[0.16em] text-white/40">Delivered in</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {formats.map((format) => (
-                  <li
-                    key={format}
-                    className="rounded-md bg-white/[0.06] px-2.5 py-1 font-mono text-xs tabular-nums text-white/80"
-                  >
-                    {format}
+                  <li key={format}>
+                    <a
+                      href="#formats"
+                      className="block rounded-md bg-white/[0.06] px-2.5 py-1 font-mono text-xs tabular-nums text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+                    >
+                      {format}
+                    </a>
                   </li>
                 ))}
               </ul>

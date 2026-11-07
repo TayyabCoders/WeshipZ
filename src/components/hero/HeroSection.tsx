@@ -5,11 +5,12 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowDownRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, Play } from "lucide-react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { Magnetic } from "@/components/animations/Magnetic";
-import { contactHref, packages } from "@/data/packages";
+import { ShowreelLightbox } from "@/components/hero/ShowreelLightbox";
+import { packages } from "@/data/packages";
 import { showreel } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -49,7 +50,9 @@ export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const [pinned, setPinned] = useState(false);
+  const [reelOpen, setReelOpen] = useState(false);
   const reelRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLVideoElement>(null);
   const pack = packages[active];
   const next = packages[(active + 1) % packages.length];
 
@@ -81,6 +84,13 @@ export function HeroSection() {
     );
     return () => media.revert();
   }, [reduceMotion]);
+
+  useEffect(() => {
+    const preview = previewRef.current;
+    if (!preview) return;
+    if (reelOpen) preview.pause();
+    else void preview.play().catch(() => undefined);
+  }, [reelOpen]);
 
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-16">
@@ -145,7 +155,7 @@ export function HeroSection() {
                       setPinned(true);
                     }}
                     className={cn(
-                      "relative rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                      "relative min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                       index === active
                         ? "border-foreground text-background"
                         : "border-border text-secondary hover:border-foreground/40 hover:text-foreground",
@@ -162,8 +172,8 @@ export function HeroSection() {
                   </button>
                 ))}
                 <Link
-                  href={contactHref("custom")}
-                  className="rounded-full border border-dashed border-primary/50 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
+                  href="/packages#builder"
+                  className="inline-flex min-h-11 items-center rounded-full border border-dashed border-primary/50 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   + Custom
                 </Link>
@@ -227,7 +237,7 @@ export function HeroSection() {
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.45, ease }}
                   >
-                    <div className="flex items-center justify-between text-[11px] font-medium uppercase tracking-[0.14em]">
+                    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em]">
                       <span className="text-primary">For {pack.audience}</span>
                       <span className="text-muted">{pack.turnaround}</span>
                     </div>
@@ -303,6 +313,7 @@ export function HeroSection() {
           style={reduceMotion ? { clipPath: "inset(0 4% 0 4% round 28px)" } : undefined}
         >
           <video
+            ref={previewRef}
             className="absolute inset-0 h-full w-full object-cover"
             src={showreel.video}
             poster={showreel.poster}
@@ -311,24 +322,25 @@ export function HeroSection() {
             loop
             playsInline
             preload="metadata"
-            aria-label="WeShipZ showreel"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-white md:p-12">
+          <button
+            type="button"
+            onClick={() => setReelOpen(true)}
+            className="absolute inset-0 flex items-end justify-between gap-4 p-6 text-left text-white md:p-12"
+            aria-label="Play showreel with sound"
+          >
             <p className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
               Showreel
               <span className="ml-3 align-middle text-sm font-medium text-white/60 md:text-base">’26</span>
             </p>
-            <a
-              href="#about"
-              className="inline-flex size-14 items-center justify-center rounded-full bg-white text-midnight transition-transform hover:scale-110 md:size-20"
-              aria-label="Scroll to the next section"
-            >
-              <ArrowDownRight className="size-6 md:size-8" />
-            </a>
-          </div>
+            <span className="inline-flex size-14 items-center justify-center rounded-full bg-white text-midnight transition-transform hover:scale-110 md:size-20">
+              <Play className="size-6 fill-current md:size-8" />
+            </span>
+          </button>
         </div>
       </div>
+      <ShowreelLightbox open={reelOpen} onClose={() => setReelOpen(false)} />
     </section>
   );
 }
