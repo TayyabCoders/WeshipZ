@@ -99,13 +99,13 @@ export function PackageGrid({ bare = false }: { bare?: boolean }) {
                   <span className="text-white/50">We&apos;ll build one.</span>
                 </h3>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-white/60">
-                  Mix motion graphics, video editing and creative ads into a scope
-                  made for your brief, timeline and budget.
+                  Pick exactly what you need, see a price range instantly, and send
+                  it to us as a brief.
                 </p>
               </div>
               <Link
-                href={contactHref("custom")}
-                className="group inline-flex h-14 items-center gap-3 self-start rounded-full bg-primary pl-7 pr-2 text-base font-medium transition-colors hover:bg-white hover:text-midnight md:self-auto"
+                href="/packages#builder"
+                className="group inline-flex h-14 max-w-full items-center gap-3 self-start rounded-full bg-primary pl-5 pr-2 text-sm font-medium transition-colors hover:bg-white hover:text-midnight sm:pl-7 sm:text-base md:self-auto"
               >
                 Build a custom package
                 <span className="inline-flex size-10 items-center justify-center rounded-full bg-white text-midnight transition-transform duration-300 group-hover:rotate-45">

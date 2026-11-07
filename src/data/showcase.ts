@@ -6,6 +6,9 @@ export type Reel = {
   poster: string;
 };
 
+/** Clip for the before/after and format demos on the home page. */
+export const craftClip = { video: "/videos/flower.mp4", poster: "/posters/product-commercial.svg" };
+
 /** Vertical edits work best; landscape clips are center-cropped to 9:16. */
 export const reels: Reel[] = [
   {

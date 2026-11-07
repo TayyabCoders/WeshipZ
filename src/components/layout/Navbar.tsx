@@ -222,7 +222,7 @@ export function Navbar() {
                           href={item.href}
                           onClick={close}
                           className={cn(
-                            "flex items-center justify-between py-4 font-display text-5xl font-semibold tracking-[-0.045em]",
+                            "flex items-center justify-between gap-4 py-4 font-display text-[clamp(2rem,10vw,3rem)] font-semibold tracking-[-0.045em]",
                             isActive(item.href) && "text-primary",
                           )}
                         >
@@ -254,7 +254,7 @@ export function Navbar() {
                   ))}
                 </div>
                 <div className="flex items-end justify-between gap-4">
-                  <a href={`mailto:${email}`} className="text-sm font-medium text-foreground underline underline-offset-4">
+                  <a href={`mailto:${email}`} className="min-w-0 break-all text-sm font-medium text-foreground underline underline-offset-4">
                     {email}
                   </a>
                   <Link

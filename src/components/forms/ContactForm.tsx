@@ -47,7 +47,7 @@ export function ContactForm() {
       service: initialPackage ? "Not sure yet" : "",
       package: initialPackage,
       budget: "",
-      description: "",
+      description: searchParams.get("brief") ?? "",
       reference: "",
     },
   });

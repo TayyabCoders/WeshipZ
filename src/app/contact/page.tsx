@@ -34,10 +34,10 @@ export default function ContactPage() {
             <p className="text-sm text-secondary">Prefer email?</p>
             <a
               href={`mailto:${email}`}
-              className="mt-2 inline-flex items-center gap-2 font-display text-2xl font-semibold tracking-[-0.03em] transition-colors hover:text-primary md:text-3xl"
+              className="mt-2 inline-flex max-w-full items-center gap-2 break-all font-display text-xl font-semibold tracking-[-0.03em] transition-colors hover:text-primary sm:text-2xl md:text-3xl"
             >
               {email}
-              <ArrowUpRight className="size-6" />
+              <ArrowUpRight className="size-5 shrink-0 sm:size-6" />
             </a>
             {whatsapp ? (
               <a

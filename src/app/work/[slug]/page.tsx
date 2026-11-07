@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { PageHero } from "@/components/common/PageHero";
+import { ProjectFilm } from "@/components/portfolio/ProjectFilm";
 import {
   categoryLabel,
   getAdjacentProjects,
@@ -50,25 +51,41 @@ export default async function ProjectPage({ params }: PageProps) {
         intro={project.summary}
       />
 
-      <section className="bg-background">
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-[1600px] overflow-hidden bg-midnight sm:aspect-video md:max-h-[88vh] md:rounded-[28px]">
-          {project.video ? (
-            <video
-              className="absolute inset-0 h-full w-full object-cover"
-              src={project.video}
-              poster={project.poster}
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="metadata"
-            />
-          ) : (
-            <Image src={project.poster} alt={project.title} fill priority className="object-cover" sizes="100vw" />
-          )}
-        </div>
-      </section>
+      <ProjectFilm title={project.title} video={project.video} poster={project.poster} />
+
+      {project.video ? (
+        <section className="bg-background pt-10 md:pt-14">
+          <Container>
+            {/* ponytail: one master cropped to three ratios until real cutdowns exist */}
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Cuts for every screen</p>
+            <ul className="mt-6 grid grid-cols-2 items-end gap-3 lg:flex lg:gap-5">
+              {[
+                { id: "9:16", frame: "aspect-[9/16] w-full max-w-[180px] lg:w-[180px] lg:max-w-none lg:shrink-0" },
+                { id: "1:1", frame: "aspect-square w-full lg:w-[220px] lg:shrink-0" },
+                { id: "16:9", frame: "col-span-2 aspect-video w-full lg:min-w-0 lg:flex-1" },
+              ].map((cut) => (
+                <li key={cut.id} className={cut.frame}>
+                  <div className="relative h-full overflow-hidden rounded-2xl bg-midnight">
+                    <video
+                      className="absolute inset-0 h-full w-full object-cover"
+                      src={project.video}
+                      poster={project.poster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                    <span className="absolute bottom-2 left-2 rounded-md bg-black/55 px-2 py-0.5 font-mono text-[10px] text-white">
+                      {cut.id}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      ) : null}
 
       <section className="bg-background py-16 md:py-24">
         <Container>
@@ -93,10 +110,10 @@ export default async function ProjectPage({ params }: PageProps) {
               {project.deliverables.map((item, index) => (
                 <li
                   key={item}
-                  className="flex items-center justify-between border-b border-border py-5 font-display text-xl font-semibold tracking-[-0.02em] md:text-2xl"
+                  className="flex items-start justify-between gap-4 border-b border-border py-5 font-display text-xl font-semibold tracking-[-0.02em] md:text-2xl"
                 >
-                  {item}
-                  <span className="text-sm font-medium text-muted">0{index + 1}</span>
+                  <span className="min-w-0">{item}</span>
+                  <span className="shrink-0 text-sm font-medium text-muted">0{index + 1}</span>
                 </li>
               ))}
             </ul>
@@ -126,21 +143,36 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {next ? (
         <Link href={`/work/${next.slug}`} className="group relative block overflow-hidden bg-midnight text-white">
-          <Image
-            src={next.poster}
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
-          />
+          {next.video ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+              src={next.video}
+              poster={next.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <Image
+              src={next.poster}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+            />
+          )}
           <Container className="relative py-24 md:py-36">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">Next project</p>
-            <p className="mt-6 flex items-center justify-between gap-6 font-display text-5xl font-semibold tracking-[-0.05em] md:text-8xl">
-              {next.title}
-              <span className="inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-white text-midnight transition-transform duration-500 group-hover:rotate-45 md:size-24">
+            <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <p className="min-w-0 font-display text-[clamp(2.25rem,10vw,6rem)] font-semibold tracking-[-0.05em]">
+                {next.title}
+              </p>
+              <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-white text-midnight transition-transform duration-500 group-hover:rotate-45 md:size-24">
                 <ArrowUpRight className="size-7 md:size-10" />
               </span>
-            </p>
+            </div>
           </Container>
         </Link>
       ) : null}
