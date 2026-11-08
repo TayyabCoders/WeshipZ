@@ -10,7 +10,7 @@ import { Container } from "@/components/common/Container";
 import { Logo } from "@/components/common/Logo";
 import { mainNav } from "@/data/navigation";
 import { services } from "@/data/services";
-import { email } from "@/data/site";
+import { email, socials } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -254,9 +254,25 @@ export function Navbar() {
                   ))}
                 </div>
                 <div className="flex items-end justify-between gap-4">
-                  <a href={`mailto:${email}`} className="min-w-0 break-all text-sm font-medium text-foreground underline underline-offset-4">
-                    {email}
-                  </a>
+                  <div className="min-w-0 space-y-3">
+                    <a href={`mailto:${email}`} className="block break-all text-sm font-medium text-foreground underline underline-offset-4">
+                      {email}
+                    </a>
+                    <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                      {socials.map((social) => (
+                        <li key={social.label}>
+                          <a
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block py-1.5 text-sm text-secondary hover:text-primary"
+                          >
+                            {social.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <Link
                     href="/contact"
                     onClick={close}

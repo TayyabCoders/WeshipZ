@@ -166,7 +166,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <p className={label}>Selected work</p>
             <div className="mt-10 grid gap-x-8 gap-y-16 md:grid-cols-2">
               {related.map((project) => (
-                <ProjectCard key={project.slug} project={project} aspect="aspect-[16/10]" />
+                <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
           </Container>

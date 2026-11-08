@@ -315,7 +315,7 @@ export function HeroSection() {
           <video
             ref={previewRef}
             className="absolute inset-0 h-full w-full object-cover"
-            src={showreel.video}
+            src={showreel.preview}
             poster={showreel.poster}
             autoPlay
             muted
@@ -328,7 +328,7 @@ export function HeroSection() {
             type="button"
             onClick={() => setReelOpen(true)}
             className="absolute inset-0 flex items-end justify-between gap-4 p-6 text-left text-white md:p-12"
-            aria-label="Play showreel with sound"
+            aria-label="Play the full showreel"
           >
             <p className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
               Showreel

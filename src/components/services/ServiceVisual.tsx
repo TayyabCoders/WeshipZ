@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const ease = [0.22, 1, 0.36, 1] as const;
 const kinetic = ["Timing", "Weight", "Ease", "Snap"];
 
-function KineticType({ src, poster, title }: { src?: string; poster: string; title: string }) {
+function KineticType({ src, poster, title }: { src?: string; poster?: string; title: string }) {
   const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
 
@@ -136,14 +136,10 @@ export function ServiceVisual({ slug }: { slug: ServiceSlug }) {
   switch (slug) {
     case "motion-graphics":
       return (
-        <KineticType
-          src={project?.video}
-          poster={project?.poster ?? "/posters/brand-motion.svg"}
-          title={project?.title ?? "Motion graphics"}
-        />
+        <KineticType src={project?.preview} poster={project?.poster} title={project ? `${project.brand}: ${project.title}` : ""} />
       );
     case "video-editing":
-      return <BeforeAfter video={project?.video} poster={project?.poster} />;
+      return <BeforeAfter video={project?.preview} poster={project?.poster} />;
     case "creative-ads":
       return <HookCuts />;
     default: {

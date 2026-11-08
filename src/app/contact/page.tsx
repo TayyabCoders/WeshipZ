@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { PageHero } from "@/components/common/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { email, whatsappHref } from "@/data/site";
+import { email, socials, whatsappHref } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -49,6 +49,20 @@ export default function ContactPage() {
                 Message on WhatsApp <ArrowUpRight className="size-4" />
               </a>
             ) : null}
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 items-center rounded-full border border-border px-4 text-sm font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
             <ol className="mt-14 border-t border-border">
               {nextSteps.map((step, index) => (

@@ -4,7 +4,7 @@ import { Container } from "@/components/common/Container";
 import { Logo } from "@/components/common/Logo";
 import { footerNav, legalNav } from "@/data/navigation";
 import { services } from "@/data/services";
-import { email, whatsappHref } from "@/data/site";
+import { email, socials, whatsappHref } from "@/data/site";
 
 export function Footer() {
   const whatsapp = whatsappHref();
@@ -119,6 +119,20 @@ export function Footer() {
                 </a>
               ) : null}
             </div>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 items-center rounded-full border border-white/15 px-4 text-sm text-primary-foreground/80 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

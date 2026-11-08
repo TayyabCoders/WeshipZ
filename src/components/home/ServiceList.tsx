@@ -111,11 +111,11 @@ export function ServiceList({ bare = false }: { bare?: boolean }) {
             />
           ) : null,
         )}
-        {current?.video ? (
+        {current ? (
           <video
             key={current.slug}
             className="absolute inset-0 h-full w-full object-cover"
-            src={current.video}
+            src={current.preview}
             autoPlay
             muted
             loop

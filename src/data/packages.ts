@@ -32,8 +32,8 @@ export const packages: Package[] = [
     ],
     services: ["video-editing", "motion-graphics"],
     turnaround: "48h per short",
-    video: "/videos/friday.mp4",
-    poster: "/posters/editorial-post.svg",
+    video: "/work/mehran-story/preview.mp4",
+    poster: "/work/mehran-story/poster.jpg",
   },
   {
     id: "saas",
@@ -50,8 +50,8 @@ export const packages: Package[] = [
     ],
     services: ["motion-graphics", "creative-ads"],
     turnaround: "2–3 weeks",
-    video: "/videos/jellyfish.mp4",
-    poster: "/posters/brand-motion.svg",
+    video: "/work/invopk/preview.mp4",
+    poster: "/work/invopk/poster.jpg",
   },
   {
     id: "startups",
@@ -68,8 +68,8 @@ export const packages: Package[] = [
     ],
     services: ["creative-ads", "motion-graphics"],
     turnaround: "2 weeks",
-    video: "/videos/flower.mp4",
-    poster: "/posters/product-commercial.svg",
+    video: "/work/cola-one/preview.mp4",
+    poster: "/work/cola-one/poster.jpg",
   },
   {
     id: "founders",
@@ -86,8 +86,8 @@ export const packages: Package[] = [
     ],
     services: ["video-editing", "motion-graphics"],
     turnaround: "72h per edit",
-    video: "/videos/sintel.mp4",
-    poster: "/posters/social-system.svg",
+    video: "/work/sugar-latte/preview.mp4",
+    poster: "/work/sugar-latte/poster.jpg",
   },
   {
     id: "ecommerce",
@@ -104,8 +104,8 @@ export const packages: Package[] = [
     ],
     services: ["creative-ads", "video-editing"],
     turnaround: "7–10 days",
-    video: "/videos/bunny.mp4",
-    poster: "/posters/product-commercial.svg",
+    video: "/work/mehran-ice-cream/preview.mp4",
+    poster: "/work/mehran-ice-cream/poster.jpg",
   },
   {
     id: "agencies",
@@ -122,8 +122,8 @@ export const packages: Package[] = [
     ],
     services: ["video-editing", "motion-graphics", "creative-ads"],
     turnaround: "Priority queue",
-    video: "/videos/jellyfish.mp4",
-    poster: "/posters/brand-motion.svg",
+    video: "/work/dunkin/preview.mp4",
+    poster: "/work/dunkin/poster.jpg",
   },
 ];
 

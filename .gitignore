@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw video masters; web versions live in public/work
+/Motion Graphics Portfolio WeShipZ/
