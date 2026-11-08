@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -8,6 +7,7 @@ import { PageHero } from "@/components/common/PageHero";
 import { ProjectFilm } from "@/components/portfolio/ProjectFilm";
 import {
   categoryLabel,
+  formatLabel,
   getAdjacentProjects,
   getProject,
   projects,
@@ -26,7 +26,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return { title: "Project" };
-  return { title: project.title, description: project.summary };
+  return {
+    title: `${project.brand}: ${project.title}`,
+    description: project.summary,
+    openGraph: { images: [project.poster] },
+  };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
@@ -37,55 +41,21 @@ export default async function ProjectPage({ params }: PageProps) {
   const { next } = getAdjacentProjects(slug);
   const service = getService(project.serviceSlug);
   const facts = [
-    { label: "Client", value: project.client },
-    { label: "Year", value: project.year },
+    { label: "Brand", value: project.brand },
+    { label: "Type", value: project.spec ? "Spec ad" : "Commercial" },
     { label: "Discipline", value: categoryLabel(project) },
-    { label: "Deliverables", value: `${project.deliverables.length} pieces` },
+    { label: "Format", value: `${formatLabel(project)} · ${project.duration}` },
   ];
 
   return (
     <>
       <PageHero
-        label={categoryLabel(project)}
+        label={`${project.brand} · ${categoryLabel(project)}`}
         lines={[project.title]}
         intro={project.summary}
       />
 
-      <ProjectFilm title={project.title} video={project.video} poster={project.poster} />
-
-      {project.video ? (
-        <section className="bg-background pt-10 md:pt-14">
-          <Container>
-            {/* ponytail: one master cropped to three ratios until real cutdowns exist */}
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Cuts for every screen</p>
-            <ul className="mt-6 grid grid-cols-2 items-end gap-3 lg:flex lg:gap-5">
-              {[
-                { id: "9:16", frame: "aspect-[9/16] w-full max-w-[180px] lg:w-[180px] lg:max-w-none lg:shrink-0" },
-                { id: "1:1", frame: "aspect-square w-full lg:w-[220px] lg:shrink-0" },
-                { id: "16:9", frame: "col-span-2 aspect-video w-full lg:min-w-0 lg:flex-1" },
-              ].map((cut) => (
-                <li key={cut.id} className={cut.frame}>
-                  <div className="relative h-full overflow-hidden rounded-2xl bg-midnight">
-                    <video
-                      className="absolute inset-0 h-full w-full object-cover"
-                      src={project.video}
-                      poster={project.poster}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                    />
-                    <span className="absolute bottom-2 left-2 rounded-md bg-black/55 px-2 py-0.5 font-mono text-[10px] text-white">
-                      {cut.id}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </section>
-      ) : null}
+      <ProjectFilm project={project} />
 
       <section className="bg-background py-16 md:py-24">
         <Container>
@@ -143,28 +113,18 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {next ? (
         <Link href={`/work/${next.slug}`} className="group relative block overflow-hidden bg-midnight text-white">
-          {next.video ? (
-            <video
-              className="absolute inset-0 h-full w-full object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
-              src={next.video}
-              poster={next.poster}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          ) : (
-            <Image
-              src={next.poster}
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
-            />
-          )}
+          <video
+            className="absolute inset-0 h-full w-full object-cover opacity-30 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+            src={next.preview}
+            poster={next.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
           <Container className="relative py-24 md:py-36">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">Next project</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">Next project · {next.brand}</p>
             <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <p className="min-w-0 font-display text-[clamp(2.25rem,10vw,6rem)] font-semibold tracking-[-0.05em]">
                 {next.title}

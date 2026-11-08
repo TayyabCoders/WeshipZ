@@ -1,3 +1,5 @@
+import { getProject, type Project } from "@/data/projects";
+
 export type Reel = {
   title: string;
   tag: string;
@@ -6,33 +8,17 @@ export type Reel = {
   poster: string;
 };
 
-/** Clip for the before/after and format demos on the home page. */
-export const craftClip = { video: "/videos/flower.mp4", poster: "/posters/product-commercial.svg" };
+const pick = (slug: string) => getProject(slug) as Project;
 
-/** Vertical edits work best; landscape clips are center-cropped to 9:16. */
+/** Clip for the before/after and format demos on the home page. */
+export const craftClip = { video: pick("dot-and-key-strawberry-bright").preview, poster: pick("dot-and-key-strawberry-bright").poster };
+
+/** Vertical edits only; the stack renders 9:16 cards. */
 export const reels: Reel[] = [
-  {
-    title: "Podcast cutdown",
-    tag: "Captions · Grade",
-    duration: "0:42",
-    video:
-      "/videos/friday.mp4",
-    poster: "/posters/editorial-post.svg",
-  },
-  {
-    title: "Editing breakdown",
-    tag: "Motion · Sound design",
-    duration: "0:30",
-    video:
-      "/videos/flower.mp4",
-    poster: "/posters/brand-motion.svg",
-  },
-  {
-    title: "Founder story",
-    tag: "Kinetic type · Reel",
-    duration: "0:55",
-    video:
-      "/videos/jellyfish.mp4",
-    poster: "/posters/social-system.svg",
-  },
-];
+  { slug: "amd-perfumes-murmur", tag: "Fragrance launch · Spec" },
+  { slug: "mehran-ice-cream", tag: "Flavour worlds · Brand film" },
+  { slug: "sugar-latte", tag: "Motion menu · Illustration" },
+].map(({ slug, tag }) => {
+  const project = pick(slug);
+  return { title: project.brand, tag, duration: project.duration, video: project.preview, poster: project.poster };
+});

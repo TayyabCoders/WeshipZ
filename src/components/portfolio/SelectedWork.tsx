@@ -8,8 +8,11 @@ import { useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { projects } from "@/data/projects";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const featured = projects.filter((project) => project.featured);
 
 export function SelectedWork() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -76,21 +79,26 @@ export function SelectedWork() {
       >
         <div
           ref={trackRef}
-          className="flex w-max gap-6 px-5 pb-2 md:gap-10 md:px-[max(2rem,calc((100vw-1280px)/2+3rem))] md:will-change-transform"
+          className="flex w-max items-start gap-6 px-5 pb-2 md:gap-10 md:px-[max(2rem,calc((100vw-1280px)/2+3rem))] md:will-change-transform"
         >
-          {projects.map((project, index) => (
+          {featured.map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}
               index={index}
               tone="dark"
-              aspect="aspect-[4/5] sm:aspect-[16/10]"
-              className="w-[82vw] shrink-0 md:w-[min(62vw,860px,calc((100vh-360px)*1.6))]"
+              className={cn(
+                "w-[82vw] shrink-0",
+                // vertical width = 0.45 × landscape width, so both media boxes share one height
+                project.orientation === "vertical"
+                  ? "max-w-[340px] md:w-[min(27.9vw,387px,calc((100vh-360px)*0.8))] md:max-w-none"
+                  : "md:w-[min(62vw,860px,calc((100vh-360px)*1.78))]",
+              )}
             />
           ))}
           <Link
             href="/work"
-            className="group flex w-[60vw] shrink-0 flex-col items-center justify-center gap-5 rounded-[24px] border border-white/15 transition-colors hover:border-primary hover:bg-primary md:w-[360px]"
+            className="group flex min-h-64 w-[60vw] shrink-0 self-stretch flex-col items-center justify-center gap-5 rounded-[24px] border border-white/15 transition-colors hover:border-primary hover:bg-primary md:w-[360px]"
           >
             <span className="inline-flex size-20 items-center justify-center rounded-full bg-white text-midnight transition-transform group-hover:scale-110">
               <ArrowUpRight className="size-8" />

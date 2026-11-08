@@ -49,7 +49,8 @@ export function ProjectGrid() {
         })}
       </div>
 
-      <div className="mt-12 grid gap-x-8 gap-y-16 md:grid-cols-2">
+      <div className="mt-12 gap-8 md:columns-2">
+        {/* columns, not grid: mixed 9:16 and 16:9 cards stack without row gaps */}
         <AnimatePresence mode="popLayout">
           {items.length === 0 ? (
             <motion.p
@@ -69,9 +70,9 @@ export function ProjectGrid() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
-                className={index % 2 === 1 ? "md:mt-24" : undefined}
+                className="mb-16 break-inside-avoid"
               >
-                <ProjectCard project={project} index={index} aspect="aspect-[4/5]" />
+                <ProjectCard project={project} />
               </motion.div>
             ))
           )}

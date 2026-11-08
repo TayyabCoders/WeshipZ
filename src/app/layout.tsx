@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { email, socials } from "@/data/site";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -42,6 +43,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "WeShipZ",
+              url: "https://weshipz.com",
+              email,
+              sameAs: socials.map((social) => social.href),
+            }),
+          }}
+        />
         <SmoothScroll>
           <Navbar />
           <main className="flex-1">{children}</main>
