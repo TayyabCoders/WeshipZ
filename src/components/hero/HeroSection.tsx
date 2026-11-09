@@ -11,7 +11,7 @@ import { Container } from "@/components/common/Container";
 import { Magnetic } from "@/components/animations/Magnetic";
 import { ShowreelLightbox } from "@/components/hero/ShowreelLightbox";
 import { packages } from "@/data/packages";
-import { showreel } from "@/data/site";
+import { heroClips, showreel } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,6 +55,10 @@ export function HeroSection() {
   const previewRef = useRef<HTMLVideoElement>(null);
   const pack = packages[active];
   const next = packages[(active + 1) % packages.length];
+  const clipCount = heroClips.length;
+  const mainClip = heroClips[active % clipCount];
+  const nextClip = heroClips[(active + 1) % clipCount];
+  const pillClip = heroClips[(active + 2) % clipCount];
 
   useEffect(() => {
     if (reduceMotion || pinned) return;
@@ -112,9 +116,9 @@ export function HeroSection() {
                   >
                     <AnimatePresence initial={false}>
                       <motion.video
-                        key={pack.id}
+                        key={pillClip.id}
                         className="absolute inset-0 h-full w-full object-cover"
-                        src={pack.video}
+                        src={pillClip.video}
                         autoPlay
                         muted
                         loop
@@ -196,15 +200,15 @@ export function HeroSection() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[32px] bg-midnight shadow-[0_50px_100px_-40px_rgba(16,17,22,0.55)] lg:aspect-auto lg:h-[min(76vh,700px)]">
               <AnimatePresence initial={false}>
                 <motion.video
-                  key={pack.id}
+                  key={mainClip.id}
                   className="absolute inset-0 h-full w-full object-cover"
-                  src={pack.video}
-                  poster={pack.poster}
+                  src={mainClip.video}
+                  poster={mainClip.poster}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  aria-label={`Example work for ${pack.audience}`}
+                  aria-label={mainClip.title}
                   initial={{ opacity: 0, scale: 1.08 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
@@ -284,9 +288,10 @@ export function HeroSection() {
             >
               <AnimatePresence initial={false}>
                 <motion.video
-                  key={next.id}
+                  key={nextClip.id}
                   className="absolute inset-0 h-full w-full object-cover"
-                  src={next.video}
+                  src={nextClip.video}
+                  poster={nextClip.poster}
                   autoPlay
                   muted
                   loop
