@@ -1,4 +1,5 @@
 import { getProject, type Project } from "@/data/projects";
+import { heroClips } from "@/data/site";
 
 export type Reel = {
   title: string;
@@ -13,12 +14,15 @@ const pick = (slug: string) => getProject(slug) as Project;
 /** Clip for the before/after and format demos on the home page. */
 export const craftClip = { video: pick("dot-and-key-strawberry-bright").preview, poster: pick("dot-and-key-strawberry-bright").poster };
 
-/** Vertical edits only; the stack renders 9:16 cards. */
+/** Vertical edits only; the stack renders 9:16 cards. Same three as the hero. */
 export const reels: Reel[] = [
-  { slug: "amd-perfumes-murmur", tag: "Fragrance launch · Spec" },
-  { slug: "mehran-ice-cream", tag: "Flavour worlds · Brand film" },
-  { slug: "sugar-latte", tag: "Motion menu · Illustration" },
-].map(({ slug, tag }) => {
-  const project = pick(slug);
-  return { title: project.brand, tag, duration: project.duration, video: project.preview, poster: project.poster };
-});
+  { clip: heroClips[0], tag: "Motion edit", duration: "0:29" },
+  { clip: heroClips[1], tag: "Talking-head edit", duration: "0:32" },
+  { clip: heroClips[2], tag: "Caption edit", duration: "0:53" },
+].map(({ clip, tag, duration }) => ({
+  title: clip.title,
+  tag,
+  duration,
+  video: clip.video,
+  poster: clip.poster,
+}));

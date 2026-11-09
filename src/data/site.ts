@@ -1,11 +1,33 @@
 export const email = "hello@weshipz.com";
 
-// ponytail: silent montage cut from the landscape ads; swap for a scored showreel when one exists
+// ponytail: Quippy + Dunkin back-to-back; swap for a scored studio showreel when one exists
 export const showreel = {
   preview: "/work/showreel/preview.mp4",
   video: "/work/showreel/full.mp4",
   poster: "/work/showreel/poster.jpg",
 };
+
+/** Vertical edits shown in the homepage hero (pill, main card, up-next). */
+export const heroClips = [
+  {
+    id: "must-watch",
+    title: "This is a must watch",
+    video: "/work/must-watch/preview.mp4",
+    poster: "/work/must-watch/poster.jpg",
+  },
+  {
+    id: "arthur-brooks",
+    title: "Arthur Brooks",
+    video: "/work/arthur-brooks/preview.mp4",
+    poster: "/work/arthur-brooks/poster.jpg",
+  },
+  {
+    id: "editors-cant-read",
+    title: "Editors can't read",
+    video: "/work/editors-cant-read/preview.mp4",
+    poster: "/work/editors-cant-read/poster.jpg",
+  },
+];
 
 export const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/weshipz" },
