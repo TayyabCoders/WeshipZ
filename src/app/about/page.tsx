@@ -59,7 +59,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         lines={["Small team.", <span key="b" className="text-muted">Big output.</span>]}
-        intro="WeShipZ is a motion and video studio. We make the motion, edits and ads people stop for, packaged for creators, SaaS teams, startups and founders."
+        intro="WeShipZ is a motion and video studio. We make the motion, edits and ads people stop for, packaged for creators, SaaS teams and startups."
       />
 
       <StudioWord />

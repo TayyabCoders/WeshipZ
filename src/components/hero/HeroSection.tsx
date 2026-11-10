@@ -254,12 +254,7 @@ export function HeroSection() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                      <p className="text-sm">
-                        <span className="text-muted">From </span>
-                        <span className="font-display text-xl font-semibold">{pack.price}</span>
-                        <span className="text-muted"> {pack.cadence}</span>
-                      </p>
+                    <div className="mt-4 flex items-center justify-end border-t border-border pt-4">
                       <Link
                         href={`/packages#${pack.id}`}
                         className="inline-flex size-10 items-center justify-center rounded-full bg-foreground text-background transition-[background-color,transform] hover:rotate-45 hover:bg-primary"

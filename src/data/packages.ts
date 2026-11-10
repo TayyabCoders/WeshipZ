@@ -6,9 +6,6 @@ export type Package = {
   audience: string;
   name: string;
   pitch: string;
-  /** Placeholder starting prices, confirm before launch. */
-  price: string;
-  cadence: string;
   includes: string[];
   services: ServiceSlug[];
   turnaround: string;
@@ -22,8 +19,6 @@ export const packages: Package[] = [
     audience: "Creators",
     name: "Creator Growth",
     pitch: "A steady stream of hook-first shorts and long-form edits, so you post more and edit never.",
-    price: "$499",
-    cadence: "/ month",
     includes: [
       "12 short-form edits a month",
       "1 long-form YouTube edit",
@@ -40,8 +35,6 @@ export const packages: Package[] = [
     audience: "SaaS teams",
     name: "SaaS Launch Kit",
     pitch: "Turn your product into motion people understand in seconds, ready for site, socials and launch day.",
-    price: "$1,500",
-    cadence: "one-off",
     includes: [
       "60–90s product explainer",
       "Animated UI walkthroughs",
@@ -58,8 +51,6 @@ export const packages: Package[] = [
     audience: "Startups",
     name: "Startup Launch",
     pitch: "Everything a launch needs to look funded: a hero film, ads to scale it and a demo that sells.",
-    price: "$1,200",
-    cadence: "one-off",
     includes: [
       "Launch film for site & socials",
       "Paid ad set: 3 hooks × 3 formats",
@@ -70,60 +61,6 @@ export const packages: Package[] = [
     turnaround: "2 weeks",
     video: "/work/cola-one/preview.mp4",
     poster: "/work/cola-one/poster.jpg",
-  },
-  {
-    id: "founders",
-    audience: "Founders",
-    name: "Founder Brand",
-    pitch: "Your ideas, edited into content that builds authority on LinkedIn, YouTube and beyond.",
-    price: "$799",
-    cadence: "/ month",
-    includes: [
-      "8 talking-head edits a month",
-      "Podcast or interview clips",
-      "Branded caption & motion templates",
-      "LinkedIn, YouTube & IG formats",
-    ],
-    services: ["video-editing", "motion-graphics"],
-    turnaround: "72h per edit",
-    video: "/work/sugar-latte/preview.mp4",
-    poster: "/work/sugar-latte/poster.jpg",
-  },
-  {
-    id: "ecommerce",
-    audience: "E-commerce brands",
-    name: "Product Ads",
-    pitch: "Scroll-stopping product ads with multiple hooks, built to test, learn and scale.",
-    price: "$899",
-    cadence: "one-off",
-    includes: [
-      "5 product or UGC-style ads",
-      "3 hook variations per ad",
-      "9:16, 1:1 & 4:5 exports",
-      "Product animation moments",
-    ],
-    services: ["creative-ads", "video-editing"],
-    turnaround: "7–10 days",
-    video: "/work/mehran-ice-cream/preview.mp4",
-    poster: "/work/mehran-ice-cream/poster.jpg",
-  },
-  {
-    id: "agencies",
-    audience: "Agencies",
-    name: "White-label Studio",
-    pitch: "Your overflow editing and motion team, delivered under your brand with no extra hires.",
-    price: "$1,000",
-    cadence: "/ month",
-    includes: [
-      "Dedicated editor & animator hours",
-      "Your brand, your client, NDA-ready",
-      "Shared Slack & review workflow",
-      "Priority turnaround",
-    ],
-    services: ["video-editing", "motion-graphics", "creative-ads"],
-    turnaround: "Priority queue",
-    video: "/work/dunkin/preview.mp4",
-    poster: "/work/dunkin/poster.jpg",
   },
 ];
 
