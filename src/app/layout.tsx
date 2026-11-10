@@ -25,11 +25,11 @@ export const metadata: Metadata = {
     template: "%s · WeShipZ",
   },
   description:
-    "WeShipZ is a motion and video studio: motion graphics, video editing and creative ads, with packages for creators, SaaS, startups and founders.",
+    "WeShipZ is a motion and video studio: motion graphics, video editing and creative ads, with packages for creators, SaaS and startups.",
   openGraph: {
     title: "WeShipZ — Motion, Video & Ads Studio",
     description:
-      "Motion graphics, video editing and creative ads people stop for. Packages for creators, SaaS, startups and founders.",
+      "Motion graphics, video editing and creative ads people stop for. Packages for creators, SaaS and startups.",
     type: "website",
     siteName: "WeShipZ",
   },

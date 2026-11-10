@@ -1,4 +1,4 @@
-export const email = "hello@weshipz.com";
+export const email = "weshipzhq@gmail.com";
 
 // ponytail: Quippy + Dunkin back-to-back; swap for a scored studio showreel when one exists
 export const showreel = {

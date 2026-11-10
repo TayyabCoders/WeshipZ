@@ -22,8 +22,8 @@ export function PackageGrid({ bare = false }: { bare?: boolean }) {
             </div>
             <div className="max-w-sm">
               <p className="text-base leading-relaxed text-secondary">
-                Ready-made packages for creators, SaaS, startups and more. Clear
-                scope, clear price, no guesswork. Or build your own.
+                Ready-made packages for creators, SaaS and startups. Clear
+                scope, no guesswork. Or build your own.
               </p>
               <Link
                 href="/packages"
@@ -49,13 +49,7 @@ export function PackageGrid({ bare = false }: { bare?: boolean }) {
                   <h3 className="mt-6 font-display text-3xl font-semibold tracking-[-0.04em]">{pack.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-secondary">{pack.pitch}</p>
 
-                  <p className="mt-8 flex items-baseline gap-2 border-t border-border pt-6">
-                    <span className="text-xs text-muted">From</span>
-                    <span className="font-display text-4xl font-semibold tracking-[-0.04em]">{pack.price}</span>
-                    <span className="text-sm text-muted">{pack.cadence}</span>
-                  </p>
-
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mt-8 space-y-3">
                     {pack.includes.map((item) => (
                       <li key={item} className="flex gap-3 text-sm">
                         <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />

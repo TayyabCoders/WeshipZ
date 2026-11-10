@@ -8,7 +8,7 @@ import { packageFaqs } from "@/data/packages";
 export const metadata: Metadata = {
   title: "Packages",
   description:
-    "Video packages for creators, SaaS teams, startups, founders, e-commerce brands and agencies, or a custom scope built around your brief.",
+    "Video packages for creators, SaaS teams and startups, or a custom scope built around your brief.",
 };
 
 export default function PackagesPage() {
