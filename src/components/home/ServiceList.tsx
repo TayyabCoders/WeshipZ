@@ -7,12 +7,19 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { projects } from "@/data/projects";
-import { services } from "@/data/services";
+import { services, type ServiceSlug } from "@/data/services";
 import { cn } from "@/lib/utils";
+
+// ponytail: Creative Ads has no own project yet; Quippy is the launch-ad stand-in
+const hoverFallback: Partial<Record<ServiceSlug, string>> = {
+  "creative-ads": "quippy",
+};
 
 const items = services.map((service) => ({
   service,
-  media: projects.find((project) => project.serviceSlug === service.slug),
+  media:
+    projects.find((project) => project.serviceSlug === service.slug) ??
+    projects.find((project) => project.slug === hoverFallback[service.slug]),
 }));
 
 export function ServiceList({ bare = false }: { bare?: boolean }) {

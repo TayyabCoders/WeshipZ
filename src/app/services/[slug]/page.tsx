@@ -29,6 +29,8 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const instant = false;
+
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
