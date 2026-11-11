@@ -9,8 +9,6 @@ export type Package = {
   includes: string[];
   services: ServiceSlug[];
   turnaround: string;
-  video: string;
-  poster: string;
 };
 
 export const packages: Package[] = [
@@ -27,8 +25,6 @@ export const packages: Package[] = [
     ],
     services: ["video-editing", "motion-graphics"],
     turnaround: "48h per short",
-    video: "/work/mehran-story/preview.mp4",
-    poster: "/work/mehran-story/poster.jpg",
   },
   {
     id: "saas",
@@ -43,8 +39,6 @@ export const packages: Package[] = [
     ],
     services: ["motion-graphics", "creative-ads"],
     turnaround: "2–3 weeks",
-    video: "/work/invopk/preview.mp4",
-    poster: "/work/invopk/poster.jpg",
   },
   {
     id: "startups",
@@ -59,8 +53,6 @@ export const packages: Package[] = [
     ],
     services: ["creative-ads", "motion-graphics"],
     turnaround: "2 weeks",
-    video: "/work/cola-one/preview.mp4",
-    poster: "/work/cola-one/poster.jpg",
   },
 ];
 

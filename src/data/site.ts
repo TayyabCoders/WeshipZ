@@ -10,10 +10,10 @@ export const showreel = {
 /** Vertical edits shown in the homepage hero (pill, main card, up-next). */
 export const heroClips = [
   {
-    id: "must-watch",
-    title: "This is a must watch",
-    video: "/work/must-watch/preview.mp4",
-    poster: "/work/must-watch/poster.jpg",
+    id: "narration-style",
+    title: "Narration style",
+    video: "/work/narration-style/preview.mp4",
+    poster: "/work/narration-style/poster.jpg",
   },
   {
     id: "arthur-brooks",

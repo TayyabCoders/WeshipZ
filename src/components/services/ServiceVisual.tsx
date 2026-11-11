@@ -136,7 +136,11 @@ export function ServiceVisual({ slug }: { slug: ServiceSlug }) {
   switch (slug) {
     case "motion-graphics":
       return (
-        <KineticType src={project?.preview} poster={project?.poster} title={project ? `${project.brand}: ${project.title}` : ""} />
+        <KineticType
+          src="/work/quippy/preview.mp4"
+          poster="/work/quippy/poster.jpg"
+          title="Quippy: Concept launch"
+        />
       );
     case "video-editing":
       return <BeforeAfter video={project?.preview} poster={project?.poster} />;
