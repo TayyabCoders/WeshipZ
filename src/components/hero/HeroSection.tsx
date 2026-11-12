@@ -1,20 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, Check, Play } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { Magnetic } from "@/components/animations/Magnetic";
-import { ShowreelLightbox } from "@/components/hero/ShowreelLightbox";
 import { packages } from "@/data/packages";
-import { heroClips, showreel } from "@/data/site";
+import { heroClips } from "@/data/site";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -50,9 +45,6 @@ export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const [pinned, setPinned] = useState(false);
-  const [reelOpen, setReelOpen] = useState(false);
-  const reelRef = useRef<HTMLDivElement>(null);
-  const previewRef = useRef<HTMLVideoElement>(null);
   const pack = packages[active];
   const next = packages[(active + 1) % packages.length];
   const clipCount = heroClips.length;
@@ -66,44 +58,14 @@ export function HeroSection() {
     return () => window.clearInterval(id);
   }, [reduceMotion, pinned]);
 
-  useEffect(() => {
-    const reel = reelRef.current;
-    if (!reel || reduceMotion) return;
-
-    const media = gsap.matchMedia();
-    media.add(
-      { desktop: "(min-width: 768px)", mobile: "(max-width: 767px)" },
-      (context) => {
-        const inset = context.conditions?.desktop ? 14 : 4;
-        gsap.fromTo(
-          reel,
-          { clipPath: `inset(0% ${inset}% 0% ${inset}% round 28px)` },
-          {
-            clipPath: "inset(0% 0% 0% 0% round 0px)",
-            ease: "none",
-            scrollTrigger: { trigger: reel, start: "top 92%", end: "top 8%", scrub: true },
-          },
-        );
-      },
-    );
-    return () => media.revert();
-  }, [reduceMotion]);
-
-  useEffect(() => {
-    const preview = previewRef.current;
-    if (!preview) return;
-    if (reelOpen) preview.pause();
-    else void preview.play().catch(() => undefined);
-  }, [reelOpen]);
-
   return (
-    <section className="relative overflow-hidden bg-background pt-10 md:pt-16">
+    <section className="relative overflow-hidden bg-background pb-16 pt-10 md:pb-24 md:pt-16">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
             <h1 className="font-display text-[clamp(3rem,6vw,6.25rem)] font-semibold leading-[0.9] tracking-[-0.055em]">
               <span className="sr-only">
-                We make video people stop for: motion graphics, video editing and creative ads.
+                We make video people stop for: motion graphics and video editing.
               </span>
               <span aria-hidden>
                 <Line delay={0.5}>We make</Line>
@@ -141,8 +103,8 @@ export function HeroSection() {
 
             <Fade delay={0.95}>
               <p className="mt-8 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
-                Motion graphics, video editing and creative ads, packaged for how
-                you grow. One team from the first idea to the final export.
+                Motion graphics and video editing, packaged for how you grow. One
+                team from the first idea to the final export.
               </p>
             </Fade>
 
@@ -303,44 +265,7 @@ export function HeroSection() {
             </motion.button>
           </Fade>
         </div>
-
       </Container>
-
-      <div className="mt-14 md:mt-20">
-        <div
-          ref={reelRef}
-          className="relative aspect-[4/5] w-full overflow-hidden bg-midnight sm:aspect-video md:max-h-[88vh]"
-          style={reduceMotion ? { clipPath: "inset(0 4% 0 4% round 28px)" } : undefined}
-        >
-          <video
-            ref={previewRef}
-            className="absolute inset-0 h-full w-full object-cover"
-            src={showreel.preview}
-            poster={showreel.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
-          <button
-            type="button"
-            onClick={() => setReelOpen(true)}
-            className="absolute inset-0 flex items-end justify-between gap-4 p-6 text-left text-white md:p-12"
-            aria-label="Play the full showreel"
-          >
-            <p className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
-              Showreel
-              <span className="ml-3 align-middle text-sm font-medium text-white/60 md:text-base">’26</span>
-            </p>
-            <span className="inline-flex size-14 items-center justify-center rounded-full bg-white text-midnight transition-transform hover:scale-110 md:size-20">
-              <Play className="size-6 fill-current md:size-8" />
-            </span>
-          </button>
-        </div>
-      </div>
-      <ShowreelLightbox open={reelOpen} onClose={() => setReelOpen(false)} />
     </section>
   );
 }

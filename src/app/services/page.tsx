@@ -8,7 +8,7 @@ import { SelectedWork } from "@/components/portfolio/SelectedWork";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Motion graphics, video editing and creative ads, under one roof.",
+    "Motion graphics and video editing, under one roof.",
 };
 
 export default function ServicesPage() {
@@ -16,8 +16,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         label="Services"
-        lines={["Three crafts.", <span key="b" className="text-muted">One studio.</span>]}
-        intro="Motion that explains, edits that hold attention and ads that sell. Pick one, grab a package, or bring a brief that needs all three."
+        lines={["Two crafts.", <span key="b" className="text-muted">One studio.</span>]}
+        intro="Motion that explains and edits that hold attention. Pick one, grab a package, or bring a brief that needs both."
       />
       <ServiceList bare />
       <SelectedWork />

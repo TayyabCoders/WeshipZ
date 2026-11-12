@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "WeShipZ is a small motion and video team making motion graphics, video edits and creative ads.",
+    "WeShipZ is a small motion and video team making motion graphics and video edits.",
 };
 
 const label = "text-xs font-medium uppercase tracking-[0.18em] text-primary";
@@ -59,7 +59,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         lines={["Small team.", <span key="b" className="text-muted">Big output.</span>]}
-        intro="WeShipZ is a motion and video studio. We make the motion, edits and ads people stop for, packaged for creators, SaaS teams and startups."
+        intro="WeShipZ is a motion and video studio. We make the motion and edits people stop for, packaged for creators, SaaS teams and startups."
       />
 
       <StudioWord />
@@ -70,15 +70,15 @@ export default function AboutPage() {
           <div>
             <Reveal>
               <p className="font-display text-3xl font-medium leading-[1.15] tracking-[-0.03em] md:text-5xl">
-                Animators, editors and ad creatives in the same room. The work
-                stays sharp because the people making the picture also
-                understand what it has to sell.
+                Animators and editors in the same room. The work stays sharp
+                because the people making the picture also understand what it
+                has to sell.
               </p>
             </Reveal>
             <p className="mt-10 max-w-xl text-lg leading-relaxed text-secondary">
-              Most brands juggle a motion designer, an editor and an ad agency.
-              We put all three under one roof, so your explainer, your content
-              and your ads look and sound like the same brand.
+              Most brands juggle a motion designer and an editor. We put both
+              under one roof, so your explainer and your content look and sound
+              like the same brand.
             </p>
           </div>
         </Container>

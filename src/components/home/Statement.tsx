@@ -11,7 +11,7 @@ import {
 import { Container } from "@/components/common/Container";
 
 const text =
-  "WeShipZ is a motion and video studio. We make the motion, edits and ads people stop scrolling for, and shape every frame to turn that attention into growth.";
+  "WeShipZ is a motion and video studio. We make the motion and edits people stop scrolling for, and shape every frame to turn that attention into growth.";
 
 function Word({
   word,

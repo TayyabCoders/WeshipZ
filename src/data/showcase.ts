@@ -8,10 +8,10 @@ export type Reel = {
   poster: string;
 };
 
-/** Clip for the before/after and format demos on the home page. */
+/** 4:5 Quippy cut for tall frames (hover, format demo, service visual). */
 export const craftClip = {
-  video: "/work/dunkin/preview.mp4",
-  poster: "/work/dunkin/poster.jpg",
+  video: "/work/quippy/preview-4x5.mp4",
+  poster: "/work/quippy/poster-4x5.jpg",
 };
 
 /** Vertical edits only; the stack renders 9:16 cards. Same three as the hero. */

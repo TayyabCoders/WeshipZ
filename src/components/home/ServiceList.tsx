@@ -6,20 +6,22 @@ import Link from "next/link";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
-import { projects } from "@/data/projects";
 import { services, type ServiceSlug } from "@/data/services";
+import { craftClip } from "@/data/showcase";
 import { cn } from "@/lib/utils";
 
-// ponytail: Creative Ads has no own project yet; Quippy is the launch-ad stand-in
-const hoverFallback: Partial<Record<ServiceSlug, string>> = {
-  "creative-ads": "quippy",
+const hoverMedia: Record<ServiceSlug, { slug: string; preview: string; poster: string }> = {
+  "motion-graphics": { slug: "quippy", preview: craftClip.video, poster: craftClip.poster },
+  "video-editing": {
+    slug: "arthur-brooks",
+    preview: "/work/arthur-brooks/preview.mp4",
+    poster: "/work/arthur-brooks/poster.jpg",
+  },
 };
 
 const items = services.map((service) => ({
   service,
-  media:
-    projects.find((project) => project.serviceSlug === service.slug) ??
-    projects.find((project) => project.slug === hoverFallback[service.slug]),
+  media: hoverMedia[service.slug],
 }));
 
 export function ServiceList({ bare = false }: { bare?: boolean }) {
@@ -49,12 +51,12 @@ export function ServiceList({ bare = false }: { bare?: boolean }) {
               What we do
             </p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Three crafts. One studio.
+              Two crafts. One studio.
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-secondary">
-            Motion, edits and ads, made by one team. Pick one, or bring a brief
-            that needs all three.
+            Motion and edits, made by one team. Pick one, or bring a brief that
+            needs both.
           </p>
         </div>
 

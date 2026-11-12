@@ -1,4 +1,4 @@
-export type ServiceSlug = "motion-graphics" | "video-editing" | "creative-ads";
+export type ServiceSlug = "motion-graphics" | "video-editing";
 
 export type Service = {
   slug: ServiceSlug;
@@ -110,54 +110,6 @@ export const services: Service[] = [
         question: "How do I send footage?",
         answer:
           "Drop it in Google Drive, Dropbox or Frame.io. We handle everything from there.",
-      },
-    ],
-  },
-  {
-    slug: "creative-ads",
-    title: "Creative Ads & Commercial Production",
-    shortTitle: "Creative Ads",
-    description:
-      "Creative advertisements and commercial visuals designed to capture attention and communicate your message.",
-    longDescription:
-      "Campaign-ready ads and commercials built to look premium, hook in three seconds and perform across platforms.",
-    accent: "#1F56BD",
-    offerings: [
-      "Paid social ads",
-      "Product commercials",
-      "UGC-style ads",
-      "Hook & angle variations",
-      "Launch & promo videos",
-      "Brand storytelling",
-    ],
-    process: [
-      {
-        title: "Brief",
-        description: "Align on audience, offer and creative angle.",
-      },
-      {
-        title: "Concept",
-        description: "Scripts, visual direction and production plan.",
-      },
-      {
-        title: "Produce",
-        description: "Shoot, design and assemble campaign assets.",
-      },
-      {
-        title: "Launch",
-        description: "Cutdowns and formats for every channel.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Can you produce for multiple platforms?",
-        answer:
-          "Yes. We deliver master cuts plus platform-specific cutdowns.",
-      },
-      {
-        question: "Do you make ad variations for testing?",
-        answer:
-          "Yes. Most ad packages include several hooks and angles so you can test what performs.",
       },
     ],
   },

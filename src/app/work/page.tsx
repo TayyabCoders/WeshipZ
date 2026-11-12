@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Motion graphics, video edits and creative ads by WeShipZ.",
+    "Motion graphics and video edits by WeShipZ.",
 };
 
 export default function WorkPage() {
@@ -21,7 +21,7 @@ export default function WorkPage() {
             work<span className="text-primary">.</span>
           </span>,
         ]}
-        intro="Motion, edits and ads. Hover any piece to see it move, then open it for the full story."
+        intro="Motion and edits. Hover any piece to see it move, then open it for the full story."
         aside={
           <p className="font-display text-6xl font-semibold tracking-[-0.05em] text-primary md:text-8xl">
             {String(projects.length).padStart(2, "0")}

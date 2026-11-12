@@ -107,7 +107,7 @@ export function Navbar() {
                                 Services
                               </p>
                               <p className="mt-4 max-w-xs font-display text-3xl font-semibold leading-[1] tracking-[-0.04em]">
-                                Three crafts, planned as one piece of work.
+                                Two crafts, planned as one piece of work.
                               </p>
                               <Link
                                 href="/services"
@@ -117,7 +117,7 @@ export function Navbar() {
                                 All services <ArrowUpRight className="size-4" />
                               </Link>
                             </div>
-                            <ul className="grid grid-cols-3 gap-x-6">
+                            <ul className="grid grid-cols-2 gap-x-6">
                               {services.map((service, index) => (
                                 <li key={service.slug}>
                                   <Link

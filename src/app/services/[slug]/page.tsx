@@ -15,13 +15,9 @@ const fit: Record<ServiceSlug, { audience: string; why: string }> = {
     audience: "Launches, product stories and brands that need a picture people replay.",
     why: "Motion is designed as a system, a hero film plus the cutdowns that come from it, so the work keeps earning after the first export.",
   },
-  "creative-ads": {
-    audience: "Teams that need a commercial to land in the first three seconds, then travel across paid and organic.",
-    why: "The idea is written for the frame and the feed at the same time, so you are never recutting a film that was never meant to be short.",
-  },
   "video-editing": {
     audience: "Creators, founders and podcasts sitting on footage that does not yet feel like a story.",
-    why: "Pacing, grade and sound are one finish, not three vendors handing files back and forth.",
+    why: "Pacing, grade and sound are one finish, not two vendors handing files back and forth.",
   },
 };
 
