@@ -19,7 +19,7 @@ const steps = [
   {
     title: "Produce",
     description:
-      "Animation, edits and ads, made by the same team that designed them. Nothing is lost in a hand-off.",
+      "Animation and edits, made by the same team that designed them. Nothing is lost in a hand-off.",
     tags: ["Motion", "Edit & grade", "Sound"],
     tone: "bg-primary text-white",
   },

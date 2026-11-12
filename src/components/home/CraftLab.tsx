@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Container } from "@/components/common/Container";
-import { BeforeAfter } from "@/components/craft/BeforeAfter";
 import { craftClip } from "@/data/showcase";
 import { cn } from "@/lib/utils";
 
@@ -24,11 +23,11 @@ function FormatSwitcher() {
   return (
     <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
       <div>
-        <h3 className="font-display text-3xl font-semibold leading-[1] tracking-[-0.04em] md:text-5xl">
+        <h2 className="font-display text-3xl font-semibold leading-[1] tracking-[-0.04em] md:text-5xl lg:text-6xl">
           One edit.
           <br />
           <span className="text-muted">Every format.</span>
-        </h3>
+        </h2>
         <p className="mt-5 max-w-sm text-base leading-relaxed text-secondary">
           We reframe every shot by hand for each platform, so nothing important gets cropped out.
         </p>
@@ -91,29 +90,9 @@ function FormatSwitcher() {
 
 export function CraftLab() {
   return (
-    <section className="bg-background py-24 md:py-36">
+    <section id="formats" className="scroll-mt-28 bg-background py-24 md:py-36">
       <Container>
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">The craft</p>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Raw in.
-              <br />
-              Ready out.
-            </h2>
-          </div>
-          <p className="max-w-sm text-base leading-relaxed text-secondary">
-            Drag the slider to see what an edit adds: grade, pacing, captions and polish.
-          </p>
-        </div>
-
-        <div className="mt-14 md:mt-20">
-          <BeforeAfter className="sm:aspect-video" />
-        </div>
-
-        <div id="formats" className="mt-24 scroll-mt-28 md:mt-36">
-          <FormatSwitcher />
-        </div>
+        <FormatSwitcher />
       </Container>
     </section>
   );

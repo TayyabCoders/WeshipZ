@@ -1,10 +1,7 @@
 import type { ServiceSlug } from "@/data/services";
+import { craftClip } from "@/data/showcase";
 
-export type ProjectCategory =
-  | "all"
-  | "motion-graphics"
-  | "creative-ads"
-  | "video-editing";
+export type ProjectCategory = "all" | "motion-graphics" | "video-editing";
 
 export type Project = {
   slug: string;
@@ -23,6 +20,9 @@ export type Project = {
   poster: string;
   /** Muted 12s loop for cards and autoplay spots. */
   preview: string;
+  /** Tall thumb when the master is landscape. Case study still uses preview. */
+  cardPoster?: string;
+  cardPreview?: string;
   /** Full cut with sound, loaded on demand. */
   video: string;
   /** Shown in the home page selected-work rail. */
@@ -32,7 +32,6 @@ export type Project = {
 export const projectFilters: { id: ProjectCategory; label: string }[] = [
   { id: "all", label: "All Work" },
   { id: "motion-graphics", label: "Motion Graphics" },
-  { id: "creative-ads", label: "Creative Ads" },
   { id: "video-editing", label: "Video Editing" },
 ];
 
@@ -43,22 +42,6 @@ const media = (slug: string) => ({
 });
 
 export const projects: Project[] = [
-  {
-    slug: "dunkin-sweet-summer",
-    title: "Sweet Summer Deal",
-    brand: "Dunkin'",
-    category: "motion-graphics",
-    serviceSlug: "motion-graphics",
-    orientation: "landscape",
-    duration: "0:44",
-    summary: "A 3D character film that turns a summer box deal into a story people watch to the end.",
-    challenge: "Make a price promotion feel like entertainment, not a discount banner.",
-    approach:
-      "Built two donut characters, gave them a walk to the store and a scene at the counter, then landed the offer with a bold product reveal and price lock-up.",
-    deliverables: ["3D character film", "Teaser trailer", "Offer end card", "Social cutdowns"],
-    ...media("dunkin"),
-    featured: true,
-  },
   {
     slug: "arthur-brooks",
     title: "Watch roll",
@@ -124,22 +107,8 @@ export const projects: Project[] = [
       "Opened on the freeze everyone knows, then walked the penguin through the product so the UI is the payoff, not a screenshot.",
     deliverables: ["Motion explainer", "Character animation", "UI walkthrough"],
     ...media("quippy"),
-  },
-  {
-    slug: "must-watch",
-    title: "Storyboard to final",
-    brand: "This is a must watch",
-    spec: true,
-    category: "video-editing",
-    serviceSlug: "video-editing",
-    orientation: "vertical",
-    duration: "0:29",
-    summary: "Storyboard versus final, taped to the wall: the same cut, before and after the edit.",
-    challenge: "Show what an edit actually adds, without a before/after slider.",
-    approach:
-      "Pinned the boards next to the finished frames and let the motion sell the jump from sketch to picture.",
-    deliverables: ["Storyboard-to-final edit", "On-screen type", "Studio end card"],
-    ...media("must-watch"),
+    cardPreview: craftClip.video,
+    cardPoster: craftClip.poster,
   },
 ];
 

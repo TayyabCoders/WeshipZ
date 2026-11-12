@@ -19,6 +19,9 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index, className, aspect, tone = "light" }: ProjectCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const dark = tone === "dark";
+  const poster = project.cardPoster ?? project.poster;
+  const preview = project.cardPreview ?? project.preview;
+  const tall = Boolean(project.cardPreview) || project.orientation === "vertical";
 
   return (
     <Link
@@ -30,11 +33,11 @@ export function ProjectCard({ project, index, className, aspect, tone = "light" 
       <div
         className={cn(
           "relative overflow-hidden rounded-[24px] bg-surface-dark",
-          aspect ?? (project.orientation === "vertical" ? "aspect-[4/5]" : "aspect-video"),
+          aspect ?? (tall ? "aspect-[4/5]" : "aspect-video"),
         )}
       >
         <Image
-          src={project.poster}
+          src={poster}
           alt={`${project.brand}: ${project.title}`}
           fill
           sizes="(max-width: 768px) 90vw, 50vw"
@@ -43,7 +46,7 @@ export function ProjectCard({ project, index, className, aspect, tone = "light" 
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          src={project.preview}
+          src={preview}
           muted
           loop
           playsInline

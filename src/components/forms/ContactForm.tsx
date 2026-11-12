@@ -23,7 +23,7 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const serviceOptions = ["Motion Graphics", "Video Editing", "Creative Ads", "All three", "Not sure yet"];
+const serviceOptions = ["Motion Graphics", "Video Editing", "Both", "Not sure yet"];
 
 const packageOptions = [...packages.map((pack) => pack.name), "Custom"];
 

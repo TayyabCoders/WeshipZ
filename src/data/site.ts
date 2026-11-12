@@ -1,12 +1,5 @@
 export const email = "weshipzhq@gmail.com";
 
-// ponytail: Quippy + Dunkin back-to-back; swap for a scored studio showreel when one exists
-export const showreel = {
-  preview: "/work/showreel/preview.mp4",
-  video: "/work/showreel/full.mp4",
-  poster: "/work/showreel/poster.jpg",
-};
-
 /** Vertical edits shown in the homepage hero (pill, main card, up-next). */
 export const heroClips = [
   {

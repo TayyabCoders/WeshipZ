@@ -4,22 +4,21 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import { X } from "lucide-react";
-import { showreel } from "@/data/site";
 
 type ShowreelLightboxProps = {
   open: boolean;
   onClose: () => void;
-  src?: string;
-  poster?: string;
-  label?: string;
+  src: string;
+  poster: string;
+  label: string;
 };
 
 export function ShowreelLightbox({
   open,
   onClose,
-  src = showreel.video,
-  poster = showreel.poster,
-  label = "WeShipZ showreel",
+  src,
+  poster,
+  label,
 }: ShowreelLightboxProps) {
   const lenis = useLenis();
   const videoRef = useRef<HTMLVideoElement>(null);

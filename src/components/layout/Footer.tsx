@@ -52,8 +52,7 @@ export function Footer() {
               <span className="font-display text-lg font-bold">WeShipZ</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              A motion and video studio for motion graphics, video editing and
-              creative ads.
+              A motion and video studio for motion graphics and video editing.
             </p>
           </div>
 

@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "WeShipZ — motion graphics, video editing and creative ads studio";
+export const alt = "WeShipZ — motion graphics and video editing studio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const services = ["Motion graphics", "Video editing", "Creative ads", "Packages"];
+const services = ["Motion graphics", "Video editing", "Packages"];
 
 export default function Image() {
   return new ImageResponse(
@@ -23,7 +23,7 @@ export default function Image() {
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 30, letterSpacing: 2 }}>
           <span style={{ color: "#296be5" }}>( </span>
-          <span style={{ margin: "0 10px" }}>MOTION · VIDEO · ADS</span>
+          <span style={{ margin: "0 10px" }}>MOTION · VIDEO</span>
           <span style={{ color: "#296be5" }}> )</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 128, fontWeight: 700, lineHeight: 0.95, letterSpacing: -5 }}>

@@ -37,7 +37,7 @@ export const packages: Package[] = [
       "Feature loops for site & socials",
       "Launch cutdowns in every format",
     ],
-    services: ["motion-graphics", "creative-ads"],
+    services: ["motion-graphics", "video-editing"],
     turnaround: "2–3 weeks",
   },
   {
@@ -51,7 +51,7 @@ export const packages: Package[] = [
       "Pitch or demo video",
       "Logo reveal & motion kit",
     ],
-    services: ["creative-ads", "motion-graphics"],
+    services: ["motion-graphics", "video-editing"],
     turnaround: "2 weeks",
   },
 ];

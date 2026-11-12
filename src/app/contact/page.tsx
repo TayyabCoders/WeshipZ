@@ -9,7 +9,7 @@ import { email, socials, whatsappHref } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with WeShipZ: motion graphics, video editing, creative ads or a ready-made package.",
+    "Start a project with WeShipZ: motion graphics, video editing or a ready-made package.",
 };
 
 const nextSteps = [
